@@ -109,8 +109,8 @@ public class DMS_View implements ActionListener
 		// Initialize JMenu's
 		fileMenu = new JMenu( lang_model.getMenuBarText("file", false, null) );
 		editMenu = new JMenu( lang_model.getMenuBarText("edit", false, null) );
-		viewMenu = new JMenu( "View" );
-		helpMenu = new JMenu( "Help" );
+		viewMenu = new JMenu( lang_model.getMenuBarText("view", false, null) );
+		helpMenu = new JMenu( lang_model.getMenuBarText("help", false, null) );
 		
 		fileMenu.setRolloverEnabled(true);
 		editMenu.setRolloverEnabled(true);
@@ -121,44 +121,44 @@ public class DMS_View implements ActionListener
 		newEntry.setIcon(images.loadImage("../images/menubar/application_icon.png") );
 		openChild = new JMenu( lang_model.getMenuBarText("file", true, "open") );
 		openChild.setIcon(images.loadImage("../images/menubar/XML_icon_small.png") );
-		viewDatabase = new JMenu( "Database" );
+		viewDatabase = new JMenu( lang_model.getMenuBarText("view", true, "db") );
 		viewDatabase.setIcon(images.loadImage("../images/menubar/database_icon.png") );
 
 		// Initialize JMenuItem's
-		newChild = new JMenuItem( "Child" );
-		newEmployee = new JMenuItem( "Employee" );
-		newAccount = new JMenuItem( "Account" );
-		saveChild = new JMenuItem( "Save", images.loadImage("../images/menubar/save_icon.png") );
-		saveAs = new JMenuItem( "Save As..." );
-		printDocument = new JMenuItem( "Print...", images.loadImage("../images/menubar/print_icon.png") );
-		properties = new JMenuItem( "Properties", images.loadImage("../images/menubar/properties_icon.png") );
-		viewCalendar = new JMenuItem( "Calender", images.loadImage("../images/menubar/calendar_icon.png") );
-		viewDatabaseChild = new JMenuItem( "Children" );
-		viewDatabaseEmployee = new JMenuItem( "Employees" );
-		viewFileChild = new JMenuItem( "Child" );
-		viewFileEmployee = new JMenuItem( "Employee" );
+		newChild = new JMenuItem( lang_model.getMenuBarText("file", true, "child") );
+		newEmployee = new JMenuItem( lang_model.getMenuBarText("file", true, "employee") );
+		newAccount = new JMenuItem( lang_model.getMenuBarText("file", true, "acct") );
+		saveChild = new JMenuItem( lang_model.getMenuBarText("file", true, "save"), images.loadImage("../images/menubar/save_icon.png") );
+		saveAs = new JMenuItem( lang_model.getMenuBarText("file", true, "saveas") );
+		printDocument = new JMenuItem( lang_model.getMenuBarText("file", true, "print"), images.loadImage("../images/menubar/print_icon.png") );
+		properties = new JMenuItem( lang_model.getMenuBarText("file", true, "prefs"), images.loadImage("../images/menubar/properties_icon.png") );
+		viewCalendar = new JMenuItem( lang_model.getMenuBarText("view", true, "cal"), images.loadImage("../images/menubar/calendar_icon.png") );
+		viewDatabaseChild = new JMenuItem( lang_model.getMenuBarText("view", true, "children") );
+		viewDatabaseEmployee = new JMenuItem( lang_model.getMenuBarText("view", true, "employees") );
+		viewFileChild = new JMenuItem( lang_model.getMenuBarText("file", true, "child") );
+		viewFileEmployee = new JMenuItem( lang_model.getMenuBarText("file", true, "employee") );
 
 		saveChild.setEnabled(false);
 		saveAs.setEnabled(false);
 		printDocument.setEnabled(false);
 		viewCalendar.setEnabled(false);
 
-		viewFinances = new JMenuItem( "Finances", images.loadImage("../images/menubar/finances_icon_small.png") );
+		viewFinances = new JMenuItem( lang_model.getMenuBarText("view", true, "finances"), images.loadImage("../images/menubar/finances_icon_small.png") );
 
-		exit = new JMenuItem( "Exit" );
-		cut = new JMenuItem ( "Cut", images.loadImage("../images/menubar/cut_icon.png") );
-		copy = new JMenuItem( "Copy", images.loadImage("../images/menubar/copy_icon.png") );
-		paste = new JMenuItem( "Paste", images.loadImage("../images/menubar/paste_icon.png") );
+		exit = new JMenuItem( lang_model.getMenuBarText("file", true, "exit") );
+		cut = new JMenuItem ( lang_model.getMenuBarText("edit", true, "cut"), images.loadImage("../images/menubar/cut_icon.png") );
+		copy = new JMenuItem( lang_model.getMenuBarText("edit", true, "copy"), images.loadImage("../images/menubar/copy_icon.png") );
+		paste = new JMenuItem( lang_model.getMenuBarText("edit", true, "paste"), images.loadImage("../images/menubar/paste_icon.png") );
 
 		viewFinances.setEnabled(false);
 		cut.setEnabled(false);
 		copy.setEnabled(false);
 		paste.setEnabled(false);
 
-		help = new JMenuItem( "Help", images.loadImage("../images/menubar/help_icon.png") );
-		faq = new JMenuItem( "FAQ" );
-		report = new JMenuItem( "Report a Bug" );
-		about = new JMenuItem( "About", images.loadImage("../images/menubar/exclamation_icon.png") );
+		help = new JMenuItem( lang_model.getMenuBarText("help", false, null), images.loadImage("../images/menubar/help_icon.png") );
+		faq = new JMenuItem( lang_model.getMenuBarText("help", true, "faq") );
+		report = new JMenuItem( lang_model.getMenuBarText("help", true, "report") );
+		about = new JMenuItem( lang_model.getMenuBarText("help", true, "about"), images.loadImage("../images/menubar/exclamation_icon.png") );
 
 		faq.setEnabled(false);
 		report.setEnabled(false);

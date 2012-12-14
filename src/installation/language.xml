@@ -21,6 +21,8 @@
 	    <title>
 	        <en>Setup - Daycare Management System </en>
 	        <es>Configuración - Sistema de Gestión de Cuidado de Niños </es>
+	        <ko></ko>
+	        <ja></ja>
 	    </title>
 		<welcome>
 			<en>Welcome to the Daycare Management System </en>
@@ -46,26 +48,36 @@
 		<on_your>
 		    <en> on your computer.</en>
 		    <es> en el equipo.</es>
+		    <ko></ko>
+	        <ja></ja>
 		</on_your>
 
 		<it_is>
 		    <en>It is recommended that you close all other applications before continuing.</en>
 		    <es>Se recomienda cerrar todas las aplicaciones antes de continuar.</es>
+		    <ko></ko>
+	        <ja></ja>
 		</it_is>
 
 		<click_install>
 		    <en>Click Install to continue, or Cancel to exit the Setup.</en>
 		    <es>Haga clic en Instalar para continuar, o en Cancelar para salir del programa de instalación.</es>
+			<ko></ko>
+	        <ja></ja>
 		</click_install>
 
 		<install>
 		    <en>Install</en>
 		    <es>Instalar</es>
+		    <ko></ko>
+	        <ja></ja>
 		</install>
 
 		<cancel>
 		    <en>Cancel</en>
 		    <es>Cancelar</es>
+		    <ko></ko>
+	        <ja></ja>
 		</cancel>
 	</installation>
 
@@ -75,20 +87,81 @@
 		<file>
 		    <menu>
 				<en>File</en>
-				<es>File</es> <!-- CHANGE THIS -->
+				<es>Archivo</es>
 				<ko>파일</ko>
+		        <ja></ja>
 			</menu>
 
 			<menuitem>
 			    <new>
 			        <en>New</en>
 			        <es>Nueva</es>
+			        <ko></ko>
+	        		<ja></ja>
 			    </new>
 			    
 			    <open>
 			        <en>Open...</en>
 			        <es>Abierto...</es>
+			        <ko></ko>
+	        		<ja></ja>
 			    </open>
+
+				<save>
+				    <en>Save</en>
+				    <es>Guardar</es>
+				    <ko></ko>
+	        		<ja></ja>
+				</save>
+
+				<saveas>
+				    <en>Save As...</en>
+				    <es>Guardar Como...</es>
+				    <ko></ko>
+	        		<ja></ja>
+				</saveas>
+
+				<prefs>
+				    <en>Preferences...</en>
+				    <es>Preferencias...</es>
+				    <ko></ko>
+	        		<ja></ja>
+				</prefs>
+
+				<print>
+				    <en>Print</en>
+				    <es>Imprimir</es>
+				    <ko></ko>
+	        		<ja></ja>
+				</print>
+
+				<exit>
+				    <en>Exit</en>
+				    <es>Salir</es>
+				    <ko></ko>
+	        		<ja></ja>
+				</exit>
+
+				<child>
+				    <en>Child</en>
+				    <es>Niño</es>
+				    <ko></ko>
+	        		<ja></ja>
+				</child>
+
+				<employee>
+				    <en>Employee</en>
+				    <es>Empleado</es>
+				    <ko></ko>
+	        		<ja></ja>
+				</employee>
+
+				<acct>
+				    <en>Account</en>
+				    <es>Cuenta</es>
+				    <ko></ko>
+	        		<ja></ja>
+				</acct>
 			</menuitem>
 		</file>
 		
@@ -96,10 +169,112 @@
 		<edit>
 		    <menu>
 				<en>Edit</en>
-				<es>Edita</es>
+				<es>Editar</es>
 				<ko>교정하다</ko>
+		        <ja></ja>
 			</menu>
+
+		    <menuitem>
+		        <cut>
+		            <en>Cut</en>
+		            <es>Cortar</es>
+		            <ko></ko>
+		            <ja></ja>
+		        </cut>
+
+		       	<copy>
+		       	    <en>Copy</en>
+		            <es>Copiar</es>
+		            <ko></ko>
+		            <ja></ja>
+		       	</copy>
+
+		       	<paste>
+		       	    <en>Paste</en>
+		            <es>Pegar</es>
+		            <ko></ko>
+		            <ja></ja>
+		       	</paste>
+		    </menuitem>
 		</edit>
+
+		<view>
+		    <menu>
+		        <en>View</en>
+		        <es>Ver</es>
+		        <ko></ko>
+		        <ja></ja>
+		    </menu>
+
+		    <menuitem>
+		        <cal>
+		            <en>Calendar</en>
+		            <es>Calendario</es>
+		            <ko></ko>
+		            <ja></ja>
+		        </cal>
+
+		        <db>
+		            <en>Database</en>
+		            <es>Base de Datos</es>
+		            <ko></ko>
+		            <ja></ja>
+		        </db>
+
+		        <finances>
+		            <en>Finances</en>
+		            <es>Finanzas</es>
+		            <ko></ko>
+		            <ja></ja>
+		        </finances>
+
+		        <children>
+		            <en>Children</en>
+		            <es>Niños</es>
+		            <ko></ko>
+		            <ja></ja>
+		        </children>
+
+		        <employees>
+		            <en>Employees</en>
+		            <es>Empleados</es>
+		            <ko></ko>
+		            <ja></ja>
+		        </employees>
+		    </menuitem>
+		</view>
+
+		<help>
+		    <menu>
+		        <en>Help</en>
+		        <es>Ayudar</es>
+		        <ko></ko>
+		        <ja></ja>
+		    </menu>
+
+		    <menuitem>
+		        <faq>
+		            <en>FAQ</en>
+		            <es>PMF</es>
+		            <ko></ko>
+		            <ja></ja>
+		        </faq>
+
+		        <report>
+		            <en>Report a Bug</en>
+		            <es>Informar de un Error</es>
+		            <ko></ko>
+		            <ja></ja>
+		        </report>
+
+		        <about>
+		            <en>About</en>
+		            <es>Sobre</es>
+		            <ko></ko>
+		            <ja></ja>
+		        </about>
+		    </menuitem>
+		</help>
 	</menubar>
 
 	<!-- "Program Version: " -->
@@ -107,6 +282,7 @@
 		<en>Program Version: </en>
 		<es>Programa Versión: </es>
 		<ko>프로그램 버전: </ko>
+		<ja></ja>
 	</program_version_text>
 
 </language>
