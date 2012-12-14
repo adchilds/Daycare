@@ -1,0 +1,23 @@
+----------------------------------
+developer_help.txt
+
+This file explains what updates/changes need to occur when the Daycare
+Management System's version number changes.
+
+Format is:
+
+FILE:
+	- CHANGE
+----------------------------------
+src/views/Install_View.java:
+	- String version = "" should be updated with the correct version number
+
+src/installation/config.txt:
+	- <version></version> data should be updated with the correct version number
+
+src/installation/changelog.txt:
+	- Detailed log of all changes for current version should be added (format should be followed)
+
+src/installation/README.txt:
+	- Any changes affecting the README file should be fixed accordingly
+	- Version number in the header should be updated with the correct version number

@@ -1,0 +1,60 @@
+<language>
+
+	<!-- List of available languages for the program -->
+	<available_languages>
+		<en>English</en>
+		<es>Spanish</es>
+		<ko>Korean</ko>
+		<ja>Japanese</ja>
+	</available_languages>
+
+	<!-- "Daycare Management System" -->
+	<dms_text>
+		<en>Daycare Management System</en>
+		<es>Sistema de Gestión de Cuidado de Niños</es>
+		<ko>보육 관리 시스템</ko>
+		<ja></ja>
+	</dms_text>
+
+	<!-- Installation Process -->
+	<installation>
+		<welcome>
+			<en>Welcome to the Daycare Management System</en>
+			<es>Bienvenidos al Sistema de Gestión de Cuidado de Niños</es>
+			<ko></ko>
+			<ja></ja>
+		</welcome>
+		
+		<setup_wiz>
+			<en>Setup Wizard</en>
+			<es></es>
+			<ko></ko>
+			<ja></ja>
+		</setup_wiz>
+	</installation>
+
+	<!-- MENUBAR -->
+	<menubar>
+		<!-- "File" -->
+		<file>
+			<en>File</en>
+			<es>File</es> <!-- CHANGE THIS -->
+			<ko>파일</ko>
+		</file>
+		
+		<!-- "Edit" -->
+		<edit>
+			<en>Edit</en>
+			<es>Edita</es>
+			<ko>교정하다</ko>
+		</edit>
+	</menubar>
+
+	<!-- "Program Version: " -->
+	<program_version_text>
+		<en>Program Version: </en>
+		<es>Programa Versión: </es>
+		<ko>프로그램 버전: </ko>
+	</program_version_text>
+
+</language>

@@ -1,0 +1,63 @@
+------------------------------------------------------
+DAYCARE MANAGEMENT SYSTEM CHANGELOG
+
+Format:
+
+Version # (date):
+	- Change #1
+	- Change #2
+	- Change #n
+------------------------------------------------------
+
+Version pre-1.00 (2010):
+	- Pre-beta development stages. OOP design without MVC design paradigm.
+
+Version 1.00 (06/10/2012):
+	- Beta release
+
+Version 1.01 (06/14/2012):
+	- Fixed installation bug not allowing the 'DMS.jar' file to be copied to the user's local file system
+	- Fixed a bug where the user could not delete forms/certifications added during the same AddEmployeeScreen process
+	- Changed the text "Complete Address" to "Current Address" on employee emergency contact screen
+	- Completed the updating system. User will be prompted at program start-up if a new version is available
+	- Changed the form/certification scrollbar unit increment to 10 in the add employee screen
+
+Version 1.02 (07/23/2012):
+	- Fixed some display issues for Macbook Pro with Retina Display
+
+Version 1.03 (08/09/2012):
+	- More display issues fixed for Macbook Pro with Retina Display
+
+Version 1.04 (08/22/2012):
+	- Design paradigm changed to Model-View-Controller (MVC). Program the same but underlying design totally different. EVERYTHING has been moved around to provide the developers with more maintainable code.
+	- Developer help file added. Explains what to change on version changes (src/developer_help.txt).
+	- Bug fix for account creation when second password was longer than first, account was still created.
+
+Version 1.05 (08/26/2012):
+	- toString() method added to a bunch of classes:
+		- Account_Controller
+		
+		** NOT FINISHED BELOW HERE **
+
+		- Child_Controller
+		- Config_Controller
+		- Employee_Controller
+		- Encryption_Model
+		- Guardian_Controller
+		- Install_Controller
+		- Login_Controller
+		- Product_Key_Controller
+		- DMS_Controller
+
+Version 1.06 (08/28/2012):
+	- Encryption class from lib package changed to Encryption_Controller and Encryption_Model to coincide with MVC design.
+
+Version 1.07 (09/26/2012):
+	- Database table views added:
+		- Table_Controller
+		- Table_View
+
+Version 1.08 (09/27/2012):
+	- Converted lib.FileSystem to use the MVC design paradigm:
+		- File_System_Controller
+		- File_System_Model

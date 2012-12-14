@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <settings>
+    <productKeySet>false</productKeySet>
+    <accountSet>false</accountSet>
+    <welcomeMessage>true</welcomeMessage>
+    <daycareName>Default Daycare Name</daycareName>
+  </settings>
+  <program>
+    <welcomeText>Welcome to the Daycare Management System. If you request
+				any help using this software please check for help in the
+				help menu or send an email to:
+				adchilds@eckerd.edu</welcomeText>
+    <programName>Daycare Management System</programName>
+    <author>Adam Childs</author>
+    <authorfacebook>http://www.facebook.com/adchilds</authorfacebook>
+    <authoremail>adchilds@eckerd.edu</authoremail>
+    <version>1.04</version>
+    <lastupdate>April 27, 2012</lastupdate>
+    <authorwebsite>http://www.adchilds.com/</authorwebsite>
+    <versionURL>http://www.adchilds.com/daycare/current_version.html</versionURL>
+    <latestProgram>http://www.adchilds.com/daycare/DMS.jar</latestProgram>
+  </program>
+</config>

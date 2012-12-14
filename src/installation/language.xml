@@ -1,0 +1,112 @@
+<language>
+
+	<!-- List of available languages for the program -->
+	<available_languages>
+		<en>English</en>
+		<es>Spanish</es>
+		<ko>Korean</ko>
+		<ja>Japanese</ja>
+	</available_languages>
+
+	<!-- "Daycare Management System" -->
+	<dms_text>
+		<en>Daycare Management System</en>
+		<es>Sistema de Gestión de Cuidado de Niños</es>
+		<ko>보육 관리 시스템</ko>
+		<ja></ja>
+	</dms_text>
+
+	<!-- Installation Process -->
+	<installation>
+	    <title>
+	        <en>Setup - Daycare Management System </en>
+	        <es>Configuración - Sistema de Gestión de Cuidado de Niños </es>
+	    </title>
+		<welcome>
+			<en>Welcome to the Daycare Management System </en>
+			<es>Bienvenidos al Sistema de Gestión de Cuidado de Niños </es>
+			<ko></ko>
+			<ja></ja>
+		</welcome>
+		
+		<setup_wiz>
+			<en> Setup Wizard</en>
+			<es></es>
+			<ko></ko>
+			<ja></ja>
+		</setup_wiz>
+		
+		<this_will>
+		    <en>This will install Daycare Management System </en>
+		    <es>Esto instalará la Sistema de Gestión de Cuidado de Niños </es>
+		    <ko></ko>
+		    <ja></ja>
+		</this_will>
+
+		<on_your>
+		    <en> on your computer.</en>
+		    <es> en el equipo.</es>
+		</on_your>
+
+		<it_is>
+		    <en>It is recommended that you close all other applications before continuing.</en>
+		    <es>Se recomienda cerrar todas las aplicaciones antes de continuar.</es>
+		</it_is>
+
+		<click_install>
+		    <en>Click Install to continue, or Cancel to exit the Setup.</en>
+		    <es>Haga clic en Instalar para continuar, o en Cancelar para salir del programa de instalación.</es>
+		</click_install>
+
+		<install>
+		    <en>Install</en>
+		    <es>Instalar</es>
+		</install>
+
+		<cancel>
+		    <en>Cancel</en>
+		    <es>Cancelar</es>
+		</cancel>
+	</installation>
+
+	<!-- MENUBAR -->
+	<menubar>
+		<!-- "File" -->
+		<file>
+		    <menu>
+				<en>File</en>
+				<es>File</es> <!-- CHANGE THIS -->
+				<ko>파일</ko>
+			</menu>
+
+			<menuitem>
+			    <new>
+			        <en>New</en>
+			        <es>Nueva</es>
+			    </new>
+			    
+			    <open>
+			        <en>Open...</en>
+			        <es>Abierto...</es>
+			    </open>
+			</menuitem>
+		</file>
+		
+		<!-- "Edit" -->
+		<edit>
+		    <menu>
+				<en>Edit</en>
+				<es>Edita</es>
+				<ko>교정하다</ko>
+			</menu>
+		</edit>
+	</menubar>
+
+	<!-- "Program Version: " -->
+	<program_version_text>
+		<en>Program Version: </en>
+		<es>Programa Versión: </es>
+		<ko>프로그램 버전: </ko>
+	</program_version_text>
+
+</language>
