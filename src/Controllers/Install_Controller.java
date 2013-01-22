@@ -1,7 +1,7 @@
-package Controllers;
+package controllers;
 
-import Models.Install_Model;
-import Views.Install_View;
+import views.Install_View;
+import models.Install_Model;
 
 /**
  * <p>Facilitates communication between the Install_View and

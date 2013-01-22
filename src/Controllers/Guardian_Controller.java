@@ -1,9 +1,10 @@
-package Controllers;
+package controllers;
 
 import java.util.ArrayList;
 
-import Views.Child_View;
-import Views.Guardian_View;
+import views.Child_View;
+import views.Guardian_View;
+
 
 /**
  * <p>Facilitates communication between the Guardian_View class and the

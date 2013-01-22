@@ -1,6 +1,6 @@
-package Controllers;
+package controllers;
 
-import Views.Product_Key_View;
+import views.Product_Key_View;
 
 /**
  * <p>Facilitates communication between the Product_Key_View and the

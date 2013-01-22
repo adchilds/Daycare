@@ -1,6 +1,6 @@
-package Controllers;
+package controllers;
 
-import Models.Language_Model;
+import models.Language_Model;
 
 public class Language_Controller
 {

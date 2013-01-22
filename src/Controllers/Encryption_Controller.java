@@ -1,6 +1,6 @@
-package Controllers;
+package controllers;
 
-import Models.Encryption_Model;
+import models.Encryption_Model;
 
 /**
  * Controls communication between the main program and the String encryption

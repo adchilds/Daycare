@@ -1,8 +1,9 @@
-package Controllers;
+package controllers;
 
 import java.awt.Component;
 
-import Views.Child_View;
+import views.Child_View;
+
 
 /**
  * <p>Facilitates communication between the Child_View class and the

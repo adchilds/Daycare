@@ -1,8 +1,9 @@
-package Controllers;
+package controllers;
 
 import javax.swing.JDesktopPane;
 
-import Views.Table_View;
+import views.Table_View;
+
 
 /**
  * <p>Controls communication between the Table_View and Table_Model class,

@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import javax.swing.ImageIcon;
 

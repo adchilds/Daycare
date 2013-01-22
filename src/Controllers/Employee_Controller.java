@@ -1,8 +1,9 @@
-package Controllers;
+package controllers;
 
 import java.awt.Component;
 
-import Views.Employee_View;
+import views.Employee_View;
+
 
 /**
  * <p>Facilitates communication between the Employee_View class and the

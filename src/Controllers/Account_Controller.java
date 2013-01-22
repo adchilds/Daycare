@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -10,8 +10,9 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
+import views.Account_View;
+
 import lib.OSProperties;
-import Views.Account_View;
 
 /**
  * Facilitates communication between the Account_View class and the

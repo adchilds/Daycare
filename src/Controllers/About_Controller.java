@@ -1,6 +1,6 @@
-package Controllers;
+package controllers;
 
-import Views.About_View;
+import views.About_View;
 
 /**
  * <p>Facilitates communication between the About_View class and the

@@ -1,6 +1,6 @@
-package Controllers;
+package controllers;
 
-import Views.Properties_View;
+import views.Properties_View;
 
 /**
  * <p>Controls communication between the user and the properties dialog.

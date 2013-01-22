@@ -1,9 +1,11 @@
-package Controllers;
+package controllers;
 
 import java.awt.Component;
 
-import Models.Login_Model;
-import Views.Login_View;
+import views.Login_View;
+
+import models.Login_Model;
+
 
 /**
  * <p>Controls logging a user into the system. Controls communication

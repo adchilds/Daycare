@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import java.awt.Dimension;
 
@@ -6,9 +6,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
+import views.DMS_View;
+
 import lib.OSProperties;
-import Models.Language_Model;
-import Views.DMS_View;
+import models.Language_Model;
 
 /**
  * <p>Facilitates communication between the DMS_View and other
