@@ -2,13 +2,14 @@ import java.io.File;
 
 import javax.swing.SwingUtilities;
 
+import controllers.Account_Controller;
+import controllers.Config_Controller;
+import controllers.DMS_Controller;
+import controllers.File_System_Controller;
+import controllers.Install_Controller;
+import controllers.Product_Key_Controller;
+
 import lib.Logger;
-import Controllers.Account_Controller;
-import Controllers.Config_Controller;
-import Controllers.DMS_Controller;
-import Controllers.File_System_Controller;
-import Controllers.Install_Controller;
-import Controllers.Product_Key_Controller;
 
 /**
  * <p>The DaycareApp class instantiates the entire program on its own thread,
