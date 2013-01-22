@@ -1,7 +1,7 @@
-package Models;
+package models;
 
-import Controllers.File_System_Controller;
-import Controllers.Install_Controller;
+import controllers.File_System_Controller;
+import controllers.Install_Controller;
 
 /**
  * <p>Install_Model houses methods related to the installation process

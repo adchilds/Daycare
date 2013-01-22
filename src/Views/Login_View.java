@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -21,11 +21,12 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+import controllers.File_System_Controller;
+import controllers.Login_Controller;
+
 import lib.Logger;
 import lib.OSProperties;
 import lib.RoundedBorder;
-import Controllers.File_System_Controller;
-import Controllers.Login_Controller;
 
 /**
  * <p>Houses the GUI components of the login window that's displayed

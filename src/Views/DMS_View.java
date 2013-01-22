@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -25,15 +25,17 @@ import javax.swing.JTextArea;
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 
-import Controllers.About_Controller;
-import Controllers.Child_Controller;
-import Controllers.Employee_Controller;
-import Controllers.File_System_Controller;
-import Controllers.Image_Controller;
-import Controllers.Language_Controller;
-import Controllers.Properties_Controller;
-import Controllers.Table_Controller;
-import Models.Language_Model;
+import models.Language_Model;
+
+import controllers.About_Controller;
+import controllers.Child_Controller;
+import controllers.Employee_Controller;
+import controllers.File_System_Controller;
+import controllers.Image_Controller;
+import controllers.Language_Controller;
+import controllers.Properties_Controller;
+import controllers.Table_Controller;
+
 
 /**
  * <p>Controls the main view of the Daycare Management System program.

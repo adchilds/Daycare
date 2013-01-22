@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 import java.io.File;
 
@@ -9,7 +9,8 @@ import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 
-import Controllers.File_System_Controller;
+import controllers.File_System_Controller;
+
 
 public class Language_Model
 {

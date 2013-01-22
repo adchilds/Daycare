@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -32,8 +32,9 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
-import Controllers.File_System_Controller;
-import Controllers.Image_Controller;
+import controllers.File_System_Controller;
+import controllers.Image_Controller;
+
 
 /**
  * <p>Controls the display of the children and employee tables.

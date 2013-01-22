@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -17,13 +17,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+import controllers.Config_Controller;
+import controllers.Image_Controller;
+import controllers.Language_Controller;
+
 import lib.Logger;
 import lib.OSProperties;
 import lib.RoundedBorder;
-import Controllers.Config_Controller;
-import Controllers.Image_Controller;
-import Controllers.Language_Controller;
-import Models.Language_Model;
+import models.Language_Model;
 
 /**
  * <p>Controls the about dialog view of the main program. Gives the user information

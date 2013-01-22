@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -54,9 +54,10 @@ import org.jdom.Element;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
-import Controllers.Employee_Controller;
-import Controllers.File_System_Controller;
-import Controllers.Image_Controller;
+import controllers.Employee_Controller;
+import controllers.File_System_Controller;
+import controllers.Image_Controller;
+
 
 /**
  * <p>Controls the Add New Employee view of the program. Shows the user a dialog

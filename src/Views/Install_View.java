@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,13 +22,14 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
+import controllers.File_System_Controller;
+import controllers.Image_Controller;
+import controllers.Install_Controller;
+import controllers.Language_Controller;
+
 import lib.OSProperties;
 import lib.RoundedBorder;
-import Controllers.File_System_Controller;
-import Controllers.Image_Controller;
-import Controllers.Install_Controller;
-import Controllers.Language_Controller;
-import Models.Language_Model;
+import models.Language_Model;
 
 /**
  * <p>Controls the view of the installation screen.

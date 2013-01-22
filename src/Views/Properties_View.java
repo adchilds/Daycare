@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -15,8 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Controllers.Config_Controller;
-import Controllers.Image_Controller;
+import controllers.Config_Controller;
+import controllers.Image_Controller;
+
 import lib.RoundedBorder;
 
 /**

@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -18,13 +18,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+import controllers.Config_Controller;
+import controllers.Product_Key_Controller;
+
 import lib.FixedSizeDocument;
 import lib.Logger;
 import lib.OSProperties;
 import lib.RoundedBorder;
 import lib.Validation;
-import Controllers.Config_Controller;
-import Controllers.Product_Key_Controller;
 
 /**
  * <p>Controls the view of the product key screen.

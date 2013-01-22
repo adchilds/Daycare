@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -50,10 +50,11 @@ import org.jdom.Element;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
-import Controllers.Child_Controller;
-import Controllers.File_System_Controller;
-import Controllers.Guardian_Controller;
-import Controllers.Image_Controller;
+import controllers.Child_Controller;
+import controllers.File_System_Controller;
+import controllers.Guardian_Controller;
+import controllers.Image_Controller;
+
 
 /**
  * <p>Controls the Add New Child view of the program. Displays a form

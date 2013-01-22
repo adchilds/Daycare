@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -15,9 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controllers.Guardian_Controller;
+import controllers.Image_Controller;
+
 import lib.RoundedBorder;
-import Controllers.Guardian_Controller;
-import Controllers.Image_Controller;
 
 /**
  * <p>Controls the view that allows user's to add guardian information for

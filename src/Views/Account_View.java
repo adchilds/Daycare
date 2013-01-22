@@ -1,4 +1,4 @@
-package Views;
+package views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -21,15 +21,16 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.WindowConstants;
 
+import controllers.Account_Controller;
+import controllers.Config_Controller;
+import controllers.Encryption_Controller;
+import controllers.File_System_Controller;
+import controllers.Image_Controller;
+
 import lib.OSProperties;
 import lib.RoundedBorder;
 import lib.SpringUtilities;
-import Controllers.Account_Controller;
-import Controllers.Config_Controller;
-import Controllers.Encryption_Controller;
-import Controllers.File_System_Controller;
-import Controllers.Image_Controller;
-import Models.File_System_Model;
+import models.File_System_Model;
 
 public class Account_View implements ActionListener
 {

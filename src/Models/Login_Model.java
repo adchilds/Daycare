@@ -1,11 +1,12 @@
-package Models;
+package models;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import Controllers.Account_Controller;
-import Controllers.Encryption_Controller;
+import controllers.Account_Controller;
+import controllers.Encryption_Controller;
+
 
 /**
  * <p>Contains all the business logic of logging a user
