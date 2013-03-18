@@ -28,7 +28,7 @@ public class Image_Controller
 		try {
 			return new ImageIcon(getClass().getResource(i));
 		} catch (NullPointerException e) {
-			new Logger().write("NullPointerException: Image \"" + i + "\" could not be found.", "ERROR");
+			Logger.write("NullPointerException: Image \"" + i + "\" could not be found.", Logger.Level.ERROR);
 		}
 		return null;
 	}

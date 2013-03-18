@@ -215,7 +215,7 @@ public class Product_Key_View implements ActionListener, KeyListener
 
 			new Config_Controller().setProductKeySet(true);
 		} else {
-			new Logger().write("Invalid product key: (" + s + ")", "ERROR");
+			Logger.write("Invalid product key: (" + s + ")", Logger.Level.ERROR);
 			feedbackLabel.setText("Invalid product key!");
 			feedbackLabel.setForeground(Color.RED);
 		}

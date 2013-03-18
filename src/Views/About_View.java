@@ -164,7 +164,7 @@ public class About_View implements ActionListener
 		} else if (e.getActionCommand().equals("facebook")) {
 			if(!Desktop.isDesktopSupported())
 			{
-				new Logger().write("Desktop is not supported.", "ERROR");
+				Logger.write("Desktop is not supported.", Logger.Level.ERROR);
 	            return;
 			}
 
@@ -172,7 +172,7 @@ public class About_View implements ActionListener
 
 			if(!desktop.isSupported(Desktop.Action.BROWSE))
 			{
-				new Logger().write("Desktop doesn't support the browse action.", "ERROR");
+				Logger.write("Desktop doesn't support the browse action.", Logger.Level.ERROR);
 				return;
 			}
 
@@ -185,7 +185,7 @@ public class About_View implements ActionListener
 		} else if (e.getActionCommand().equals("email")) {
 			if(!Desktop.isDesktopSupported())
 			{
-				new Logger().write("Desktop is not supported.", "ERROR");
+				Logger.write("Desktop is not supported.", Logger.Level.ERROR);
 	            return;
 			}
 
@@ -193,7 +193,7 @@ public class About_View implements ActionListener
 
 			if(!desktop.isSupported(Desktop.Action.MAIL))
 			{
-				new Logger().write("Desktop doesn't support the email action.", "ERROR");
+				Logger.write("Desktop doesn't support the email action.", Logger.Level.ERROR);
 				return;
 			}
 
@@ -206,7 +206,7 @@ public class About_View implements ActionListener
 		} else if (e.getActionCommand().equals("website")) {
 			if(!Desktop.isDesktopSupported())
 			{
-				new Logger().write("Desktop is not supported.", "ERROR");
+				Logger.write("Desktop is not supported.", Logger.Level.ERROR);
 	            return;
 			}
 
@@ -214,7 +214,7 @@ public class About_View implements ActionListener
 
 			if(!desktop.isSupported(Desktop.Action.BROWSE))
 			{
-				new Logger().write("Desktop doesn't support the browse action.", "ERROR");
+				Logger.write("Desktop doesn't support the browse action.", Logger.Level.ERROR);
 				return;
 			}
 

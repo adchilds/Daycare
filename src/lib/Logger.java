@@ -7,6 +7,7 @@ import java.util.Date;
 
 import controllers.File_System_Controller;
 
+
 /**
  * <p>Facilitates the logging of warning, error, etc., messages which
  * can be used by the developer or user to debug errors within the
@@ -16,32 +17,7 @@ import controllers.File_System_Controller;
  */
 public class Logger
 {
-	/**
-	 * Log level
-	 * @author Adam Childs
-	 * @since 3/10/2013
-	 */
-	public static enum Level
-	{
-		ERROR("ERROR"), // Some programming error occurred (e.g. an exception)
-		INFO("INFO"), // Informational message
-		SYSTEM("SYSTEM"), // System level message
-		USER_ERROR("USER_ERROR"), // User produced error (e.g. required field not filled in)
-		WARNING("WARNING"); // Warning, but not error
-		
-		private String level;
-		Level(String l)
-		{
-			this.level = l;
-		}
-		
-		public String toString()
-		{
-			return this.level;
-		}
-	};
-
-	static String toFile = new File_System_Controller().getModel().findFile("logs/log.txt");
+	String toFile = null;
 
 	/**
 	 * <p>General logging constructor when simply trying to write
@@ -49,7 +25,7 @@ public class Logger
 	 */
 	public Logger()
 	{
-		
+		toFile = new File_System_Controller().getModel().findFile("logs/log.txt");
 	}
 
 	/**
@@ -59,7 +35,7 @@ public class Logger
 	 * @param message The message to write to the log file
 	 * @param level The message status level (WARNING, ERROR, INFO, etc.)
 	 */
-	public static void write(String message, Level level)
+	public void write(String message, String level)
 	{
 		try {
 			FileWriter fw = new FileWriter(toFile, true);

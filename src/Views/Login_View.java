@@ -178,7 +178,7 @@ public class Login_View implements ActionListener, KeyListener
 		{
 			feedbackLabel.setText( "You must fill all fields." );
 			feedbackLabel.setForeground(Color.RED);
-			new Logger().write("Not all fields filled in during login procedure.", "USER_ERROR");
+			Logger.write("Not all fields filled in during login procedure.", Logger.Level.USER_ERROR);
 			return;
 		}
 
@@ -205,12 +205,12 @@ public class Login_View implements ActionListener, KeyListener
 			} else {
 				feedbackLabel.setText("Invalid username or password!");
 				feedbackLabel.setForeground(Color.RED);
-				new Logger().write("Invalid password [" + pass + "] for account [" + user + "].", "USER_ERROR");
+				Logger.write("Invalid password [" + pass + "] for account [" + user + "].", Logger.Level.USER_ERROR);
 			}
 		} else {
 			feedbackLabel.setText("Invalid username or password!");
 			feedbackLabel.setForeground(Color.RED);
-			new Logger().write("Invalid username [" + user + "].", "USER_ERROR");
+			Logger.write("Invalid username [" + user + "].", Logger.Level.USER_ERROR);
 		}
 	}
 
@@ -223,7 +223,7 @@ public class Login_View implements ActionListener, KeyListener
 			{
 				feedbackLabel.setText( "You must fill all fields." );
 				feedbackLabel.setForeground(Color.RED);
-				new Logger().write("Not all fields filled in during login procedure.", "USER_ERROR");
+				Logger.write("Not all fields filled in during login procedure.", Logger.Level.USER_ERROR);
 				return;
 			}
 			attemptLogin();

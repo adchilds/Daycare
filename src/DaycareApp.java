@@ -34,21 +34,21 @@ class DaycareApp
 					if (!new File(new File_System_Controller().getModel().findFile("config.xml")).exists())
 					{
 						new Install_Controller().showView();
-						new Logger().write("Program installed.", "INFO");
+						Logger.write("Program installed.", Logger.Level.INFO);
 						System.out.println("Program installed.");
 					}
 
 					// Prompt the user to enter a product key if they haven't already
 					if (!new Config_Controller().productKeySet())
 					{
-						new Logger().write("Product Key not set, please supply the one distributed with this software.", "INFO");
+						Logger.write("Product Key not set, please supply the one distributed with this software.", Logger.Level.INFO);
 						new Product_Key_Controller().showView();
 					}
 
 					// Prompt the user to create an account if they haven't already
 					if (!new Config_Controller().accountSet())
 					{
-						new Logger().write("No account found, please create one.", "INFO");
+						Logger.write("No account found, please create one.", Logger.Level.INFO);
 						new Account_Controller().showView();
 					}
 

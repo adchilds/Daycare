@@ -35,9 +35,9 @@ public class Encryption_Model
 			}
 			return sb.toString();
 		} catch (java.security.NoSuchAlgorithmException e) {
-			new Logger().write("NoSuchAlgorithmException thrown.", "ERROR");
+			Logger.write("NoSuchAlgorithmException thrown.", Logger.Level.ERROR);
 		} catch (UnsupportedEncodingException e) {
-			new Logger().write("UTF-8 encoding not supported on this platform.", "ERROR");
+			Logger.write("UTF-8 encoding not supported on this platform.", Logger.Level.ERROR);
 		}
 		return null;
 	}

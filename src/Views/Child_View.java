@@ -1035,7 +1035,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 			outputter.output(doc, writer); // Save the new document
 			System.out.println( "SYSTEM: Saved new child XML file:\n" + childname + ".xml" );
 		} catch (IOException e) {
-			new Logger().write("IOException: Could not save new child XML file.", "ERROR");
+			Logger.write("IOException: Could not save new child XML file.", Logger.Level.ERROR);
 		}
 	}
 

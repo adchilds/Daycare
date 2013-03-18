@@ -52,7 +52,7 @@ public class Config_Controller
 			outputter.output(doc, writer); // Save the new document
 			writer.close();
 		} catch (IOException e) {
-			new Logger().write("IOException: Could not save XML config file.", "ERROR");
+			Logger.write("IOException: Could not save XML config file.", Logger.Level.ERROR);
 		}
 	}
 
@@ -73,7 +73,7 @@ public class Config_Controller
 	{
 		String s = new Boolean(b).toString();
 		root.getChild("settings").getChild("accountSet").setText(s);
-		new Logger().write("accountSet set to: " + s, "SYSTEM");
+		Logger.write("accountSet set to: " + s, Logger.Level.SYSTEM);
 		saveFile();
 	}
 
@@ -104,7 +104,7 @@ public class Config_Controller
 	{
 		String s = new Boolean(b).toString();
 		root.getChild("settings").getChild("productKeySet").setText(s);
-		new Logger().write("Valid Product Key set to: " + s, "SYSTEM");
+		Logger.write("Valid Product Key set to: " + s, Logger.Level.SYSTEM);
 		saveFile();
 	}
 
@@ -125,7 +125,7 @@ public class Config_Controller
 	{
 		String s = new Boolean(b).toString();
 		root.getChild("settings").getChild("welcomeMessage").setText(s);
-		new Logger().write("Display welcome message changed to: " + s, "SYSTEM");
+		Logger.write("Display welcome message changed to: " + s, Logger.Level.SYSTEM);
 		saveFile();
 	}
 
@@ -143,7 +143,7 @@ public class Config_Controller
 	public void setDaycareName(String s)
 	{
 		root.getChild("settings").getChild("daycareName").setText(s);
-		new Logger().write("Daycare name changed to: " + s, "SYSTEM");
+		Logger.write("Daycare name changed to: " + s, Logger.Level.SYSTEM);
 		saveFile();
 	}
 

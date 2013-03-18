@@ -43,7 +43,7 @@ public class Language_Model
 		if (root.getChild("available_languages").getChild(language) == null)
 		{
 			language = "en";
-			new Logger().write("Language not supported! Defaulting to English.", "INFO");
+			Logger.write("Language not supported! Defaulting to English.", Logger.Level.INFO);
 		}
 	}
 
