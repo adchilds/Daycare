@@ -17,7 +17,8 @@ import controllers.File_System_Controller;
  */
 public class Logger
 {
-	static String toFile = null;
+	static OSProperties osp = new OSProperties();
+	static String toFile = new File_System_Controller().getModel().findFile("logs" + osp.getSeparator() + "log.txt");
 
 	/**
 	 * Log level
@@ -50,7 +51,7 @@ public class Logger
 	 */
 	public Logger()
 	{
-		toFile = new File_System_Controller().getModel().findFile("logs/log.txt");
+		
 	}
 
 	/**
