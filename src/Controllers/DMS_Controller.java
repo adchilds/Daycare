@@ -6,10 +6,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
-import views.DMS_View;
-
 import lib.OSProperties;
 import models.Language_Model;
+import views.DMS_View;
 
 /**
  * <p>Facilitates communication between the DMS_View and other
@@ -44,9 +43,9 @@ public class DMS_Controller
 		else
 			d = new Dimension(750, 550); // Default
 
-		initView(lang_model.getProgramNameText(),
+		initView(lang_model.getValue(2),
 				d,
-				new Image_Controller().loadImage("../images/program_icon_large.png")
+				new Image_Controller().loadImage("Images/program_icon_large.png")
 				);
 	}
 
@@ -87,12 +86,12 @@ public class DMS_Controller
 	{
 		if (config_file.getWelcomeMessage()) // if welcome message is to be shown
 		{
-			final JCheckBox checkbox = new JCheckBox( "Do not show this message again." );
-			Object[] welcomeParams = { config_file.getWelcomeText(), checkbox };
+			final JCheckBox checkbox = new JCheckBox( lang_model.getValue(40) );
+			Object[] welcomeParams = { lang_model.getValue(38), checkbox };
 
 			JOptionPane.showMessageDialog(view.getFrame(),
 					welcomeParams,
-					"Welcome",
+					lang_model.getValue(39),
 					JOptionPane.INFORMATION_MESSAGE);
 
 			config_file.setWelcomeMessage(!checkbox.isSelected());
