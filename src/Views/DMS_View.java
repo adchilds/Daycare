@@ -111,58 +111,58 @@ public class DMS_View implements ActionListener
 				viewDatabaseChild, viewDatabaseEmployee, viewFinances, viewCalendar, exit, cut, copy, paste, help, faq, report, about;
 		
 		// Initialize JMenu's
-		fileMenu = new JMenu( lang_model.getMenuBarText("file", false, null) );
-		editMenu = new JMenu( lang_model.getMenuBarText("edit", false, null) );
-		viewMenu = new JMenu( lang_model.getMenuBarText("view", false, null) );
-		helpMenu = new JMenu( lang_model.getMenuBarText("help", false, null) );
+		fileMenu = new JMenu( lang_model.getValue(12) );
+		editMenu = new JMenu( lang_model.getValue(23) );
+		viewMenu = new JMenu( lang_model.getValue(27) );
+		helpMenu = new JMenu( lang_model.getValue(33) );
 		
 		fileMenu.setRolloverEnabled(true);
 		editMenu.setRolloverEnabled(true);
 		helpMenu.setRolloverEnabled(true);
 
 		// Initialize sub-JMenu's
-		newEntry = new JMenu( lang_model.getMenuBarText("file", true, "new") );
-		newEntry.setIcon(images.loadImage("../images/menubar/application_icon.png") );
-		openChild = new JMenu( lang_model.getMenuBarText("file", true, "open") );
-		openChild.setIcon(images.loadImage("../images/menubar/XML_icon_small.png") );
-		viewDatabase = new JMenu( lang_model.getMenuBarText("view", true, "db") );
-		viewDatabase.setIcon(images.loadImage("../images/menubar/database_icon.png") );
+		newEntry = new JMenu( lang_model.getValue(13) );
+		newEntry.setIcon(images.loadImage("Images/menubar/application_icon.png") );
+		openChild = new JMenu( lang_model.getValue(14) );
+		openChild.setIcon(images.loadImage("Images/menubar/XML_icon_small.png") );
+		viewDatabase = new JMenu( lang_model.getValue(29) );
+		viewDatabase.setIcon(images.loadImage("Images/menubar/database_icon.png") );
 
 		// Initialize JMenuItem's
-		newChild = new JMenuItem( lang_model.getMenuBarText("file", true, "child") );
-		newEmployee = new JMenuItem( lang_model.getMenuBarText("file", true, "employee") );
-		newAccount = new JMenuItem( lang_model.getMenuBarText("file", true, "acct") );
-		saveChild = new JMenuItem( lang_model.getMenuBarText("file", true, "save"), images.loadImage("../images/menubar/save_icon.png") );
-		saveAs = new JMenuItem( lang_model.getMenuBarText("file", true, "saveas") );
-		printDocument = new JMenuItem( lang_model.getMenuBarText("file", true, "print"), images.loadImage("../images/menubar/print_icon.png") );
-		properties = new JMenuItem( lang_model.getMenuBarText("file", true, "prefs"), images.loadImage("../images/menubar/properties_icon.png") );
-		viewCalendar = new JMenuItem( lang_model.getMenuBarText("view", true, "cal"), images.loadImage("../images/menubar/calendar_icon.png") );
-		viewDatabaseChild = new JMenuItem( lang_model.getMenuBarText("view", true, "children") );
-		viewDatabaseEmployee = new JMenuItem( lang_model.getMenuBarText("view", true, "employees") );
-		viewFileChild = new JMenuItem( lang_model.getMenuBarText("file", true, "child") );
-		viewFileEmployee = new JMenuItem( lang_model.getMenuBarText("file", true, "employee") );
+		newChild = new JMenuItem( lang_model.getValue(20) );
+		newEmployee = new JMenuItem( lang_model.getValue(21) );
+		newAccount = new JMenuItem( lang_model.getValue(22) );
+		saveChild = new JMenuItem( lang_model.getValue(15), images.loadImage("Images/menubar/save_icon.png") );
+		saveAs = new JMenuItem( lang_model.getValue(16) );
+		printDocument = new JMenuItem( lang_model.getValue(18), images.loadImage("Images/menubar/print_icon.png") );
+		properties = new JMenuItem( lang_model.getValue(17), images.loadImage("Images/menubar/properties_icon.png") );
+		viewCalendar = new JMenuItem( lang_model.getValue(28), images.loadImage("Images/menubar/calendar_icon.png") );
+		viewDatabaseChild = new JMenuItem( lang_model.getValue(31) );
+		viewDatabaseEmployee = new JMenuItem( lang_model.getValue(32) );
+		viewFileChild = new JMenuItem( lang_model.getValue(20) );
+		viewFileEmployee = new JMenuItem( lang_model.getValue(21) );
 
 		saveChild.setEnabled(false);
 		saveAs.setEnabled(false);
 		printDocument.setEnabled(false);
 		viewCalendar.setEnabled(false);
 
-		viewFinances = new JMenuItem( lang_model.getMenuBarText("view", true, "finances"), images.loadImage("../images/menubar/finances_icon_small.png") );
+		viewFinances = new JMenuItem( lang_model.getValue(30), images.loadImage("Images/menubar/finances_icon_small.png") );
 
-		exit = new JMenuItem( lang_model.getMenuBarText("file", true, "exit") );
-		cut = new JMenuItem ( lang_model.getMenuBarText("edit", true, "cut"), images.loadImage("../images/menubar/cut_icon.png") );
-		copy = new JMenuItem( lang_model.getMenuBarText("edit", true, "copy"), images.loadImage("../images/menubar/copy_icon.png") );
-		paste = new JMenuItem( lang_model.getMenuBarText("edit", true, "paste"), images.loadImage("../images/menubar/paste_icon.png") );
+		exit = new JMenuItem( lang_model.getValue(19) );
+		cut = new JMenuItem ( lang_model.getValue(24), images.loadImage("Images/menubar/cut_icon.png") );
+		copy = new JMenuItem( lang_model.getValue(25), images.loadImage("Images/menubar/copy_icon.png") );
+		paste = new JMenuItem( lang_model.getValue(26), images.loadImage("Images/menubar/paste_icon.png") );
 
 		viewFinances.setEnabled(false);
 		cut.setEnabled(false);
 		copy.setEnabled(false);
 		paste.setEnabled(false);
 
-		help = new JMenuItem( lang_model.getMenuBarText("help", false, null), images.loadImage("../images/menubar/help_icon.png") );
-		faq = new JMenuItem( lang_model.getMenuBarText("help", true, "faq") );
-		report = new JMenuItem( lang_model.getMenuBarText("help", true, "report") );
-		about = new JMenuItem( lang_model.getMenuBarText("help", true, "about"), images.loadImage("../images/menubar/exclamation_icon.png") );
+		help = new JMenuItem( lang_model.getValue(33), images.loadImage("Images/menubar/help_icon.png") );
+		faq = new JMenuItem( lang_model.getValue(34) );
+		report = new JMenuItem( lang_model.getValue(35) );
+		about = new JMenuItem( lang_model.getValue(36), images.loadImage("Images/menubar/exclamation_icon.png") );
 
 		faq.setEnabled(false);
 
@@ -270,28 +270,28 @@ public class DMS_View implements ActionListener
 		JToolBar toolbar = new JToolBar();
 		JButton button;
 
-		button = new JButton(images.loadImage("../images/toolbar/add_child_icon.png"));
+		button = new JButton(images.loadImage("Images/toolbar/add_child_icon.png"));
 		button.setToolTipText("Add New Child");
 		button.setFocusPainted(false);
 		button.setActionCommand("newchild");
 		button.addActionListener(this);
 		toolbar.add(button);
 
-		button = new JButton(images.loadImage("../images/toolbar/add_employee_icon.png"));
+		button = new JButton(images.loadImage("Images/toolbar/add_employee_icon.png"));
 		button.setToolTipText("Add New Employee");
 		button.setFocusPainted(false);
 		button.setActionCommand("newemployee");
 		button.addActionListener(this);
 		toolbar.add(button);
 
-		button = new JButton(images.loadImage("../images/toolbar/XML_icon_large.png"));
+		button = new JButton(images.loadImage("Images/toolbar/XML_icon_large.png"));
 		button.setToolTipText("Open...");
 		button.setFocusPainted(false);
 		button.setActionCommand("openfile");
 		button.addActionListener(this);
 		toolbar.add(button);
 
-		button = new JButton(images.loadImage("../images/toolbar/calendar_icon_large.png"));
+		button = new JButton(images.loadImage("Images/toolbar/calendar_icon_large.png"));
 		button.setToolTipText("View Calendar");
 		button.setFocusPainted(false);
 		button.setActionCommand("viewcalendar");
@@ -299,14 +299,14 @@ public class DMS_View implements ActionListener
 		button.setEnabled(false);
 		toolbar.add(button);
 
-		button = new JButton(images.loadImage("../images/toolbar/database_icon_large.png"));
+		button = new JButton(images.loadImage("Images/toolbar/database_icon_large.png"));
 		button.setToolTipText("View Database");
 		button.setFocusPainted(false);
 		button.setActionCommand("viewdatabase");
 		button.addActionListener(this);
 		toolbar.add(button);
 
-		button = new JButton(images.loadImage("../images/toolbar/finances_icon_large.png"));
+		button = new JButton(images.loadImage("Images/toolbar/finances_icon_large.png"));
 		button.setToolTipText("View Finances");
 		button.setFocusPainted(false);
 		button.setActionCommand("viewfinances");
@@ -409,6 +409,10 @@ public class DMS_View implements ActionListener
 			} catch (PropertyVetoException e1) {
 				e1.printStackTrace();
 			}
+		}
+		else if (e.getActionCommand().equals("newaccount"))
+		{
+			new Account_View().show();
 		}
 		else if (e.getActionCommand().equals("properties"))
 		{

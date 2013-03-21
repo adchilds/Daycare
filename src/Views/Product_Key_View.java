@@ -18,14 +18,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
-import controllers.Config_Controller;
-import controllers.Product_Key_Controller;
-
 import lib.FixedSizeDocument;
 import lib.Logger;
 import lib.OSProperties;
 import lib.RoundedBorder;
 import lib.Validation;
+import controllers.Config_Controller;
+import controllers.Product_Key_Controller;
 
 /**
  * <p>Controls the view of the product key screen.

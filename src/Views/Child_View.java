@@ -73,7 +73,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 	Container c = null;
 	File file;
 	Image_Controller images = new Image_Controller();
-	ImageIcon image = images.loadImage("../images/no_photo_icon.png");
+	ImageIcon image = images.loadImage("Images/no_photo_icon.png");
 	int currentPanel = 1;
 	JButton childImage = null, doneButton = null;
 	JCheckBox[] childCheckBox = new JCheckBox[7];
@@ -125,7 +125,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		iframe.setClosable(true);
 		iframe.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
 		iframe.addInternalFrameListener(this);
-		iframe.setFrameIcon(new Image_Controller().loadImage("../images/childframe/child_icon.png"));
+		iframe.setFrameIcon(new Image_Controller().loadImage("Images/childframe/child_icon.png"));
 		iframe.setVisible(true);
 
 		return iframe;
@@ -227,7 +227,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		// Panel Three
 		// Sex
 		panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		label = new JLabel(images.loadImage("../images/user_male_icon.png"));
+		label = new JLabel(images.loadImage("Images/user_male_icon.png"));
 		panel.add(label);
 
 		sexMale = new JRadioButton("Male", true);
@@ -235,7 +235,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		sexMale.addActionListener(this);
 		panel.add(sexMale);
 
-		label = new JLabel(images.loadImage("../images/user_female_icon.png"));
+		label = new JLabel(images.loadImage("Images/user_female_icon.png"));
 		panel.add(label);
 
 		sexFemale = new JRadioButton("Female", false);
@@ -543,7 +543,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		JPanel ratePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 			ratePanel.setBorder(BorderFactory.createTitledBorder("Quoted Rate"));
 
-		label = new JLabel(images.loadImage("../images/money_dollar_icon.png"));
+		label = new JLabel(images.loadImage("Images/money_dollar_icon.png"));
 		ratePanel.add(label);
 
 		childTextField[8] = new JTextField(6);
@@ -592,7 +592,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		for (int i = 0; i < 3; i++)
 		{
 			button = new JButton();
-			button.setIcon(images.loadImage("../images/edit_icon.png"));
+			button.setIcon(images.loadImage("Images/edit_icon.png"));
 			button.setToolTipText("Edit Information");
 			button.setPreferredSize(new Dimension(25, 25));
 			button.setBorder(new RoundedBorder(5));
@@ -626,7 +626,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		JButton button;
 
 		button = new JButton("Back");
-		button.setIcon(images.loadImage("../images/arrow_left_icon.png"));
+		button.setIcon(images.loadImage("Images/arrow_left_icon.png"));
 		button.setActionCommand("backbutton");
 		button.setToolTipText("Back");
 		button.addActionListener(this);
@@ -636,7 +636,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		p.add(button);
 
 		button = new JButton("Next");
-		button.setIcon(images.loadImage("../images/arrow_right_icon.png"));
+		button.setIcon(images.loadImage("Images/arrow_right_icon.png"));
 		button.setActionCommand("nextbutton");
 		button.setToolTipText("Next");
 		button.addActionListener(this);
@@ -646,7 +646,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		p.add(button);
 
 		doneButton = new JButton("Done");
-		doneButton.setIcon(images.loadImage("../images/accept_icon.png"));
+		doneButton.setIcon(images.loadImage("Images/accept_icon.png"));
 		doneButton.setActionCommand("donebutton");
 		if (doneButtonEnabled)
 			doneButton.setToolTipText("Save Child");
@@ -659,7 +659,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		p.add(doneButton);
 
 		button = new JButton("Cancel");
-		button.setIcon(images.loadImage("../images/cross_icon.png"));
+		button.setIcon(images.loadImage("Images/cross_icon.png"));
 		button.setToolTipText("Cancel");
 		button.setActionCommand("cancelbutton");
 		button.addActionListener(this);
@@ -772,7 +772,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 			if (image != null)
 				childImage.setIcon(image);
 			else
-				childImage.setIcon(images.loadImage("../images/no_photo_icon.png"));
+				childImage.setIcon(images.loadImage("Images/no_photo_icon.png"));
 
 			for (int i = 0; i < 6; i++)
 				childTextField[i].setText(content.get(i));

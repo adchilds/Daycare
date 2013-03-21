@@ -35,12 +35,10 @@ import lib.RoundedBorder;
 import lib.SpringUtilities;
 import models.Bug_Report_Model;
 import controllers.File_System_Controller;
-import controllers.Image_Controller;
 
 public class Bug_Report_View implements ActionListener, KeyListener
 {
 	private Bug_Report_Model model = null;
-	private Image_Controller images = new Image_Controller();
 	private JButton closeButton, sendButton;
 	private JCheckBox checkbox;
 	private JDialog dialog = new JDialog();
@@ -75,7 +73,6 @@ public class Bug_Report_View implements ActionListener, KeyListener
 		dialog.setTitle("Bug Report");
 		dialog.setResizable(false);
 		dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		dialog.setIconImage(images.loadImage("../images/program_icon_small.png").getImage());
 		dialog.setLocationRelativeTo(null);
 		dialog.setVisible(true);
 	}

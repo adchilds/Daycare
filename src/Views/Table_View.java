@@ -131,7 +131,7 @@ public class Table_View implements ActionListener, InternalFrameListener
 
 //		f.setLocation(loc);
 		f.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
-		f.setFrameIcon(images.loadImage("../images/menubar/database_icon.png"));
+		f.setFrameIcon(images.loadImage("Images/menubar/database_icon.png"));
 		f.addInternalFrameListener(this);
 
 		if (osp.isLowResolution())
@@ -265,7 +265,7 @@ public class Table_View implements ActionListener, InternalFrameListener
 
 //		f.setLocation(loc);
 		f.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
-		f.setFrameIcon(images.loadImage("../images/menubar/database_icon.png"));
+		f.setFrameIcon(images.loadImage("Images/menubar/database_icon.png"));
 		f.addInternalFrameListener(this);
 
 		if (osp.isLowResolution())
@@ -419,7 +419,7 @@ public class Table_View implements ActionListener, InternalFrameListener
 
 		if (b)
 		{
-			JButton addChildButton = new JButton(images.loadImage("../images/toolbar/add_child_icon.png"));
+			JButton addChildButton = new JButton(images.loadImage("Images/toolbar/add_child_icon.png"));
 			addChildButton.setPreferredSize(new Dimension(30, 30));
 			addChildButton.setFocusPainted(false);
 			addChildButton.setToolTipText( "Add New Child" );
@@ -428,7 +428,7 @@ public class Table_View implements ActionListener, InternalFrameListener
 			addChildButton.setEnabled(false);
 			trailPanel.add(addChildButton);
 		} else {
-			JButton addEmployeeButton = new JButton(images.loadImage("../images/toolbar/add_employee_icon.png"));
+			JButton addEmployeeButton = new JButton(images.loadImage("Images/toolbar/add_employee_icon.png"));
 			addEmployeeButton.setPreferredSize(new Dimension(30, 30));
 			addEmployeeButton.setFocusPainted(false);
 			addEmployeeButton.setToolTipText( "Add New Employee" );
@@ -439,7 +439,7 @@ public class Table_View implements ActionListener, InternalFrameListener
 		}
 
 		// TODO: opening a file but currently selected row
-		JButton openButton = new JButton(images.loadImage("../images/toolbar/XML_icon_large.png"));
+		JButton openButton = new JButton(images.loadImage("Images/toolbar/XML_icon_large.png"));
 		openButton.setPreferredSize(new Dimension(30, 30));
 		openButton.setFocusPainted(false);
 		openButton.setToolTipText( "Open Selected File" );
@@ -447,7 +447,7 @@ public class Table_View implements ActionListener, InternalFrameListener
 		openButton.addActionListener(this);
 		trailPanel.add(openButton);
 
-		JButton refreshButton = new JButton(images.loadImage("../images/database/database_refresh_icon.png"));
+		JButton refreshButton = new JButton(images.loadImage("Images/database/database_refresh_icon.png"));
 		refreshButton.setPreferredSize(new Dimension(30, 30));
 		refreshButton.setFocusPainted(false);
 		refreshButton.setToolTipText( "Refresh Database" );
@@ -456,7 +456,7 @@ public class Table_View implements ActionListener, InternalFrameListener
 		//refreshButton.setEnabled(false);
 		trailPanel.add(refreshButton);
 
-		JButton saveButton = new JButton(images.loadImage("../images/database/database_save_icon.png"));
+		JButton saveButton = new JButton(images.loadImage("Images/database/database_save_icon.png"));
 		saveButton.setPreferredSize(new Dimension(30, 30));
 		saveButton.setFocusPainted(false);
 		saveButton.setToolTipText( "Save Changes" );
@@ -465,7 +465,7 @@ public class Table_View implements ActionListener, InternalFrameListener
 		saveButton.setEnabled(false);
 		trailPanel.add(saveButton);
 
-		JButton deleteButton = new JButton(images.loadImage("../images/database/database_delete_icon.png"));
+		JButton deleteButton = new JButton(images.loadImage("Images/database/database_delete_icon.png"));
 		deleteButton.setPreferredSize(new Dimension(30, 30));
 		deleteButton.setFocusPainted(false);
 		if (b)

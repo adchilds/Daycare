@@ -15,10 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import lib.RoundedBorder;
 import controllers.Guardian_Controller;
 import controllers.Image_Controller;
-
-import lib.RoundedBorder;
 
 /**
  * <p>Controls the view that allows user's to add guardian information for
@@ -71,7 +70,7 @@ public class Guardian_View extends JDialog implements ActionListener
 	{
 		add(parentPanel());
 		setTitle("Guardian Information - " + r);
-		setIconImage(images.loadImage("../images/openxmlfile/parents_icon.png").getImage());
+		setIconImage(images.loadImage("Images/openxmlfile/parents_icon.png").getImage());
 		setMinimumSize(new Dimension(400, 390)); // width, height
 		setModal(true);
 		setResizable(true);
@@ -172,7 +171,7 @@ public class Guardian_View extends JDialog implements ActionListener
 		JButton button;
 
 		button = new JButton("Save");
-		button.setIcon(images.loadImage("../images/accept_icon.png"));
+		button.setIcon(images.loadImage("Images/accept_icon.png"));
 		button.setActionCommand("savebutton");
 		button.setToolTipText("Save Changes");
 		button.addActionListener(this);
@@ -181,7 +180,7 @@ public class Guardian_View extends JDialog implements ActionListener
 		p.add(button);
 
 		button = new JButton("Cancel");
-		button.setIcon(images.loadImage("../images/cross_icon.png"));
+		button.setIcon(images.loadImage("Images/cross_icon.png"));
 		button.setActionCommand("cancelbutton");
 		button.setToolTipText("Cancel Changes");
 		button.addActionListener(this);

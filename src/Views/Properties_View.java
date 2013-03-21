@@ -51,7 +51,7 @@ public class Properties_View implements ActionListener
 		c.add(northPanel(), BorderLayout.CENTER);
 		c.add(southPanel(), BorderLayout.SOUTH);
 
-		dialog.setIconImage(images.loadImage("../images/menubar/properties_icon.png").getImage());
+		dialog.setIconImage(images.loadImage("Images/menubar/properties_icon.png").getImage());
 		dialog.pack();
 		dialog.setLocationRelativeTo(null);
 		dialog.setResizable(false);

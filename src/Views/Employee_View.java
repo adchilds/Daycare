@@ -71,7 +71,7 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 	JDesktopPane desktop;
 	Container c;
 	Image_Controller images = new Image_Controller();
-	ImageIcon image = images.loadImage("../images/no_photo_icon.png");
+	ImageIcon image = images.loadImage("Images/no_photo_icon.png");
 	JButton employeeImage, doneButton;
 	JComboBox monthBox, dayBox, yearBox, rateBox;
 	JComboBox[] stateBox = new JComboBox[4];
@@ -127,7 +127,7 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		iframe.setClosable(true);
 		iframe.setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
 		iframe.addInternalFrameListener(this);
-		iframe.setFrameIcon(images.loadImage("../images/employeeframe/employee_icon.png"));
+		iframe.setFrameIcon(images.loadImage("Images/employeeframe/employee_icon.png"));
 		iframe.setVisible(true);
 
 		return iframe;
@@ -229,7 +229,7 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		// Panel Three
 		// Sex
 		panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		label = new JLabel(images.loadImage("../images/user_male_icon.png"));
+		label = new JLabel(images.loadImage("Images/user_male_icon.png"));
 		panel.add(label);
 
 		sexMale = new JRadioButton("Male", true);
@@ -237,7 +237,7 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		sexMale.addActionListener(this);
 		panel.add(sexMale);
 
-		label = new JLabel(images.loadImage("../images/user_female_icon.png"));
+		label = new JLabel(images.loadImage("Images/user_female_icon.png"));
 		panel.add(label);
 
 		sexFemale = new JRadioButton("Female", false);
@@ -559,7 +559,7 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		employeeTextField[21].addFocusListener(this);
 		westSouthPanel.add(employeeTextField[21]);
 		
-		button = new JButton(images.loadImage("../images/employeeframe/plus_icon_small.png"));
+		button = new JButton(images.loadImage("Images/employeeframe/plus_icon_small.png"));
 		button.setBorder(new RoundedBorder(5));
 		button.setPreferredSize(new Dimension(25, 25));
 		button.setToolTipText("Add new form/certification");
@@ -567,7 +567,7 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		button.addActionListener(this);
 		westSouthPanel.add(button);
 		
-		button = new JButton(images.loadImage("../images/employeeframe/minus_icon_small.png"));
+		button = new JButton(images.loadImage("Images/employeeframe/minus_icon_small.png"));
 		button.setBorder(new RoundedBorder(5));
 		button.setPreferredSize(new Dimension(25, 25));
 		button.setToolTipText("Remove selected form(s)/certification(s)");
@@ -696,7 +696,7 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		label = new JLabel( "Salary:" );
 		cSNorthPanel.add(label);
 
-		label = new JLabel(images.loadImage("../images/money_dollar_icon.png"));
+		label = new JLabel(images.loadImage("Images/money_dollar_icon.png"));
 		cSNorthPanel.add(label);
 
 		if (osp.isMac())
@@ -808,7 +808,7 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		JButton button;
 
 		button = new JButton("Back");
-		button.setIcon(images.loadImage("../images/arrow_left_icon.png"));
+		button.setIcon(images.loadImage("Images/arrow_left_icon.png"));
 		button.setActionCommand("backbutton");
 		button.setToolTipText("Back");
 		button.addActionListener(this);
@@ -818,7 +818,7 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		p.add(button);
 
 		button = new JButton("Next");
-		button.setIcon(images.loadImage("../images/arrow_right_icon.png"));
+		button.setIcon(images.loadImage("Images/arrow_right_icon.png"));
 		button.setActionCommand("nextbutton");
 		button.setToolTipText("Next");
 		button.addActionListener(this);
@@ -828,7 +828,7 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		p.add(button);
 
 		doneButton = new JButton("Done");
-		doneButton.setIcon(images.loadImage("../images/accept_icon.png"));
+		doneButton.setIcon(images.loadImage("Images/accept_icon.png"));
 		doneButton.setActionCommand("donebutton");
 		if (doneButtonEnabled)
 			doneButton.setToolTipText("Save Employee");
@@ -841,7 +841,7 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		p.add(doneButton);
 
 		button = new JButton("Cancel");
-		button.setIcon(images.loadImage("../images/cross_icon.png"));
+		button.setIcon(images.loadImage("Images/cross_icon.png"));
 		button.setToolTipText("Cancel");
 		button.setActionCommand("cancelbutton");
 		button.addActionListener(this);

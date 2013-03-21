@@ -17,14 +17,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import controllers.Config_Controller;
-import controllers.Image_Controller;
-import controllers.Language_Controller;
-
 import lib.Logger;
 import lib.OSProperties;
 import lib.RoundedBorder;
 import models.Language_Model;
+import controllers.Config_Controller;
+import controllers.Image_Controller;
+import controllers.Language_Controller;
 
 /**
  * <p>Controls the about dialog view of the main program. Gives the user information
@@ -66,7 +65,7 @@ public class About_View implements ActionListener
 		dialog.setTitle("About D.M.S.");
 		dialog.setResizable(false);
 		dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		dialog.setIconImage(images.loadImage("../images/program_icon_small.png").getImage());
+		dialog.setIconImage(images.loadImage("Images/program_icon_small.png").getImage());
 		dialog.setVisible(true);
 	}
 
@@ -83,7 +82,7 @@ public class About_View implements ActionListener
 		p.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		JPanel textPanel = new JPanel(new FlowLayout());
 	
-		label = new JLabel(lang_model.getProgramVersionText() + config.getProgramVersion());
+		label = new JLabel(lang_model.getValue(37) + config.getProgramVersion());
 		textPanel.add(label);
 
 		nextLine(textPanel, 0); // skip a line hack, better way to do this?
@@ -93,7 +92,7 @@ public class About_View implements ActionListener
 
 		nextLine(textPanel, 0); // skip a line hack, better way to do this?
 
-		button = new JButton(images.loadImage("../images/website_icon.png"));
+		button = new JButton(images.loadImage("Images/website_icon.png"));
 		button.setPreferredSize(new Dimension(25, 25));
 		button.setBorder(new RoundedBorder(5));
 		button.setToolTipText("Click to view the author's website");
@@ -104,7 +103,7 @@ public class About_View implements ActionListener
 
 		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 
-		button = new JButton(images.loadImage("../images/facebook_icon.png"));
+		button = new JButton(images.loadImage("Images/facebook_icon.png"));
 		button.setPreferredSize(new Dimension(25, 25));
 		button.setBorder(new RoundedBorder(5));
 		button.setToolTipText("Click to view the author's facebook profile");
@@ -115,7 +114,7 @@ public class About_View implements ActionListener
 
 		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 
-		button = new JButton(images.loadImage("../images/email_icon.png"));
+		button = new JButton(images.loadImage("Images/email_icon.png"));
 		button.setPreferredSize(new Dimension(25, 25));
 		button.setBorder(new RoundedBorder(5));
 		button.setToolTipText("Click to email the author");

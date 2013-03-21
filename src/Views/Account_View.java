@@ -21,16 +21,15 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.WindowConstants;
 
+import lib.OSProperties;
+import lib.RoundedBorder;
+import lib.SpringUtilities;
+import models.File_System_Model;
 import controllers.Account_Controller;
 import controllers.Config_Controller;
 import controllers.Encryption_Controller;
 import controllers.File_System_Controller;
 import controllers.Image_Controller;
-
-import lib.OSProperties;
-import lib.RoundedBorder;
-import lib.SpringUtilities;
-import models.File_System_Model;
 
 public class Account_View implements ActionListener
 {
@@ -62,7 +61,7 @@ public class Account_View implements ActionListener
 		else
 			dialog.setSize(275, 230); // width, height
 
-		dialog.setIconImage(images.loadImage("../images/program_icon_small.png").getImage());
+		dialog.setIconImage(images.loadImage("Images/program_icon_small.png").getImage());
 		dialog.setLocationRelativeTo(null);
 		dialog.setTitle( "Create New Account" );
 		dialog.setModal(true);
@@ -214,9 +213,7 @@ public class Account_View implements ActionListener
 
 			// Is this the first account?
 			if (!config.accountSet())
-			{
 				config.setAccountSet(true);
-			}
 
 			username.setEnabled(false);
 			firstPass.setEnabled(false);
