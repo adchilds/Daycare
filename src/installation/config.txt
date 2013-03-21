@@ -12,6 +12,7 @@
 				help menu or send an email to:
 				adchilds@eckerd.edu</welcomeText>
     <programName>Daycare Management System</programName>
+    <programEmail>daycare_management_system@hotmail.com</programEmail>
     <author>Adam Childs</author>
     <authorfacebook>http://www.facebook.com/adchilds</authorfacebook>
     <authoremail>adchilds@eckerd.edu</authoremail>

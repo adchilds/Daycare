@@ -1,8 +1,11 @@
 ------------------------------------------------------
 DAYCARE MANAGEMENT SYSTEM CHANGELOG
 
-Format:
+NOTE: For an official changelog with most every change to date, visit the github
+repository at: http://www.github.com/adchilds
 
+Format:
+------------------------------------------------------
 Version # (date):
 	- Change #1
 	- Change #2
@@ -61,3 +64,8 @@ Version 1.08 (09/27/2012):
 	- Converted lib.FileSystem to use the MVC design paradigm:
 		- File_System_Controller
 		- File_System_Model
+
+Version 1.09 (03/21/2013):
+	- Bug Reporting System
+		- Uses Google Mail (gmail)
+		- Allows users to report bugs in the program

@@ -26,8 +26,8 @@ import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 
 import models.Language_Model;
-
 import controllers.About_Controller;
+import controllers.Bug_Report_Controller;
 import controllers.Child_Controller;
 import controllers.Employee_Controller;
 import controllers.File_System_Controller;
@@ -163,7 +163,6 @@ public class DMS_View implements ActionListener
 		about = new JMenuItem( lang_model.getMenuBarText("help", true, "about"), images.loadImage("../images/menubar/exclamation_icon.png") );
 
 		faq.setEnabled(false);
-		report.setEnabled(false);
 
 		// Add JMenuItem's to the JMenu's
 		fileMenu.add(newEntry);
@@ -403,7 +402,7 @@ public class DMS_View implements ActionListener
 		}
 		else if (e.getActionCommand().equals("reportbug"))
 		{
-			
+			new Bug_Report_Controller().showView();
 		}
 		else if (e.getActionCommand().equals("viewdatabase"))
 		{
