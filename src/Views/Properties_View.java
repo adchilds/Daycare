@@ -7,18 +7,18 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import controllers.Config_Controller;
-import controllers.Image_Controller;
+import javax.swing.SpringLayout;
 
 import lib.RoundedBorder;
+import lib.SpringUtilities;
+import controllers.Config_Controller;
+import controllers.Image_Controller;
 
 /**
  * <p>Contains the user interface which allows the user to edit program
@@ -52,7 +52,7 @@ public class Properties_View implements ActionListener
 		c.add(southPanel(), BorderLayout.SOUTH);
 
 		dialog.setIconImage(images.loadImage("../images/menubar/properties_icon.png").getImage());
-		dialog.setSize(300, 175);
+		dialog.pack();
 		dialog.setLocationRelativeTo(null);
 		dialog.setResizable(false);
 		dialog.setModal(true);
@@ -62,20 +62,37 @@ public class Properties_View implements ActionListener
 
 	private JPanel northPanel()
 	{
-		JPanel p = new JPanel(new FlowLayout(FlowLayout.LEADING, 5, 10));
-
+		JPanel p = new JPanel(new SpringLayout());
+		String[] labels = {"Daycare Name:", "Show welcome message on startup:" };
+		int numPairs = labels.length;
 		JLabel label;
-		label = new JLabel("Daycare Name:");
-		textfield = new JTextField();
-		textfield.setText(config_file.getDaycareName());
-		textfield.setPreferredSize(new Dimension(150, 20));
+
+		label = new JLabel(labels[0], JLabel.TRAILING);
 		p.add(label);
+		textfield = new JTextField(15);
+		textfield.setText(config_file.getDaycareName());
+		label.setLabelFor(textfield);
 		p.add(textfield);
 
-		nextLine(p);
+		label = new JLabel(labels[1], JLabel.TRAILING);
+		p.add(label);
 
-		welcomeMessage = new JCheckBox("Display Welcome Message at startup");
+		welcomeMessage = new JCheckBox("");
+
+		Config_Controller config_file = new Config_Controller();
+		if (config_file.getWelcomeMessage()) // if welcome message is to be shown
+			welcomeMessage.setSelected(true);
+		else
+			welcomeMessage.setSelected(false);
+
+		label.setLabelFor(welcomeMessage);
 		p.add(welcomeMessage);
+
+		// Lay out the panel
+		SpringUtilities.makeCompactGrid(p,
+		                                numPairs, 2, //rows, cols
+		                                3, 0,        //initX, initY
+		                                5, 5);     //xPad, yPad
 
 		return p;
 	}
@@ -102,28 +119,17 @@ public class Properties_View implements ActionListener
 		return p;
 	}
 
-	/**
-	 * Fills the rest of the line with a blank Box object.
-	 * Mainly used for our FlowLayout to fill the rest of the line so
-	 * we can wrap to the next line to add more components that
-	 * should be grouped together.
-	 * 
-	 * @param c The Container to add the Box object to
-	 */
-	private void nextLine(Container c)
-	{
-		c.add(Box.createRigidArea(new Dimension(9999, -15)));
-	}
-
 	/*
 	 * Save the users preferences/properties
 	 */
 	private void save()
 	{
-		if (!(config_file.getDaycareName().equals(textfield.getText())))
+		if (!config_file.getDaycareName().equals(textfield.getText()))
 			config_file.setDaycareName(textfield.getText());
 		if (welcomeMessage.isSelected())
 			config_file.setWelcomeMessage(true);
+		else
+			config_file.setWelcomeMessage(false);
 	}
 
 	@Override
