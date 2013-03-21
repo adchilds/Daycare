@@ -2,8 +2,6 @@ package controllers;
 
 import javax.swing.ImageIcon;
 
-import lib.Logger;
-
 /**
  * <p>This class contains helper functions for images used throughout the program.
  * 
@@ -26,9 +24,10 @@ public class Image_Controller
 	public ImageIcon loadImage(String i)
 	{
 		try {
-			return new ImageIcon(getClass().getResource(i));
+			return new ImageIcon(this.getClass().getClassLoader().getResource(i));
 		} catch (NullPointerException e) {
-			Logger.write("NullPointerException: Image \"" + i + "\" could not be found.", Logger.Level.ERROR);
+			System.out.println("NullPointerException: Image \"" + i + "\" could not be found.");
+			e.printStackTrace();
 		}
 		return null;
 	}
