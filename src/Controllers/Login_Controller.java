@@ -2,9 +2,8 @@ package controllers;
 
 import java.awt.Component;
 
-import views.Login_View;
-
 import models.Login_Model;
+import views.Login_View;
 
 
 /**
