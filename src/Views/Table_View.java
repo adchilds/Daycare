@@ -93,9 +93,23 @@ public class Table_View implements ActionListener, InternalFrameListener
 	public void showTable(byte database)
 	{
 		if (database == (byte)0)
-			desktop.add(childFrame());
-		else
-			desktop.add(employeeFrame());
+		{
+			JInternalFrame i = (JInternalFrame)childFrame();
+			desktop.add(i);
+			try {
+				i.setSelected(true);
+			} catch (PropertyVetoException e1) {
+				e1.printStackTrace();
+			}
+		} else {
+			JInternalFrame i = (JInternalFrame)employeeFrame();
+			desktop.add(i);
+			try {
+				i.setSelected(true);
+			} catch (PropertyVetoException e1) {
+				e1.printStackTrace();
+			}
+		}
 	}
 
 	public JInternalFrame childFrame()

@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.beans.PropertyVetoException;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -16,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -390,11 +392,23 @@ public class DMS_View implements ActionListener
 		}
 		else if (e.getActionCommand().equals("newchild"))
 		{
-			desktop.add(new Child_Controller().showView());
+			JInternalFrame i = (JInternalFrame)new Child_Controller().showView();
+			desktop.add(i);
+			try {
+				i.setSelected(true);
+			} catch (PropertyVetoException e1) {
+				e1.printStackTrace();
+			}
 		}
 		else if (e.getActionCommand().equals("newemployee"))
 		{
-			desktop.add(new Employee_Controller().showView());
+			JInternalFrame i = (JInternalFrame)new Employee_Controller().showView();
+			desktop.add(i);
+			try {
+				i.setSelected(true);
+			} catch (PropertyVetoException e1) {
+				e1.printStackTrace();
+			}
 		}
 		else if (e.getActionCommand().equals("properties"))
 		{
