@@ -1,46 +1,47 @@
 package models;
 
-import java.io.File;
+import java.io.FileInputStream;
 
 import lib.Logger;
 import lib.OSProperties;
 
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
-
-import controllers.File_System_Controller;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
 
 public class Language_Model
 {
-	private SAXBuilder builder;
-	private Document doc;
-	private Element root;
-	private String languagesFile = "language.xml";
+	private OSProperties osp = new OSProperties();
+	private String languagesFile = "language.xls";
 	private String language = ""; // User's default system language
+	private POIFSFileSystem fs;
+	private HSSFWorkbook wb;
+	private HSSFSheet sheet;
 
 	public Language_Model()
 	{
-		builder = new SAXBuilder();
 		try
 		{
-			doc = builder.build(new File(new File_System_Controller().getModel().findFile(languagesFile)));
-		} catch (Exception e) {
-			try {
-				doc = builder.build(new File("src/installation/language.xml"));
-			} catch (Exception ex) {
-				System.out.println("Something went wrong!");
-				System.err.println(ex);
-				System.exit(1);
+			try
+			{
+				fs = new POIFSFileSystem(this.getClass().getResourceAsStream(osp.getSeparator() + "installation" + osp.getSeparator() + languagesFile));
+				//fs = new POIFSFileSystem(new FileInputStream("src" + osp.getSeparator() + "installation" + osp.getSeparator() + languagesFile));
+				//fs = new POIFSFileSystem(new FileInputStream(new File_System_Controller().getModel().findFile(languagesFile)));
+			} catch(java.io.FileNotFoundException fnf) {
+				fs = new POIFSFileSystem(new FileInputStream("src" + osp.getSeparator() + "installation" + osp.getSeparator() + languagesFile));
 			}
+			wb = new HSSFWorkbook(fs);
+			sheet = wb.getSheetAt(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(1);
 		}
-		root = doc.getRootElement();
 
 		language = new OSProperties().getLanguage();
-
-		// If the program doesn't support the user's default language, set language to English
-		if (root.getChild("available_languages").getChild(language) == null)
+		if (!findLanguage(language))
 		{
 			language = "en";
 			Logger.write("Language not supported! Defaulting to English.", Logger.Level.INFO);
@@ -48,53 +49,87 @@ public class Language_Model
 	}
 
 	/**
-	 * @return "Daycare Management System"
+	 * <p>Gets the value held in the specified row.
+	 * 
+	 * @param r The row to get the value from
+ 	 * @return A String representation of the value held in the specified row
 	 */
-	public String getProgramNameText()
+	public String getValue(int r)
 	{
-		return root.getChild("dms_text").getChildText(language);
+		HSSFRow row = sheet.getRow(r);
+		HSSFCell cell;
+		int column = getLanguageColumn(language);
+
+		if (row != null)
+		{
+			cell = row.getCell(column);
+			if (cell != null)
+				return cell.getRichStringCellValue().getString();
+			else // Default to English if DMS doesn't have a translation for an item
+			{
+				cell = row.getCell(1);
+				return cell.getRichStringCellValue().getString();
+			}
+		}
+		return "";
 	}
 
 	/**
-	 * @return "Program Version: "
+	 * <p>Finds all supported languages for DMS and chooses the
+	 * correct language for the user if their default language is
+	 * supported. Otherwise, defaults to English.
 	 */
-	public String getProgramVersionText()
+	private boolean findLanguage(String l)
 	{
-		return root.getChild("program_version_text").getChildText(language);
+		// Find all supported languages for DMS
+		HSSFRow row = sheet.getRow(1);
+		HSSFCell cell;
+
+		if (row != null)
+		{
+			for (int c = 1; c < row.getPhysicalNumberOfCells(); c++)
+			{
+				cell = row.getCell(c);
+
+				if (cell != null)
+				{
+					String lang = cell.getRichStringCellValue().getString();
+					lang = lang.substring(0, 2); // Language in format ("en (English)")
+					if (lang.equals(l))
+						return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	/**
-	 * <p>Gets the specified text for the install menu in the appropriate language.
-	 * @param choice
-	 * @return
+	 * <p>Returns the column number for the specified language.
+	 * 
+	 * @param l The language id
+	 * @return an int representation of the column containing the specified language's translations
 	 */
-	public String getInstallText(String choice)
+	private int getLanguageColumn(String l)
 	{
-		return root.getChild("installation").getChild(choice).getChildText(language);
-	}
+		// Find all supported languages for DMS
+		HSSFRow row = sheet.getRow(1);
+		HSSFCell cell;
 
-	/**
-	 * <p>Gets the specified text for the menubar in the appropriate language.
-	 * @param choice
-	 * @return
-	 */
-	public String getMenuBarText(String choice)
-	{
-		return root.getChild("menubar").getChild(choice).getChildText(language);
-	}
+		if (row != null)
+		{
+			for (int c = 1; c < row.getPhysicalNumberOfCells(); c++)
+			{
+				cell = row.getCell(c);
 
-	/**
-	 * <p>Gets the specified text for the menubar in the appropriate language.
-	 * @param choice The menubar to get the text for
-	 * @param m true for "menuitem" or false for "menu"
-	 * @return
-	 */
-	public String getMenuBarText(String choice, boolean b, String m2)
-	{
-		if (b)
-			return root.getChild("menubar").getChild(choice).getChild("menuitem").getChild(m2).getChildText(language);
-		else
-			return root.getChild("menubar").getChild(choice).getChild("menu").getChildText(language);
-
+				if (cell != null)
+				{
+					String lang = cell.getRichStringCellValue().getString();
+					lang = lang.substring(0, 2); // Language in format ("en (English)")
+					if (lang.equals(language))
+						return c;
+				}
+			}
+		}
+		return 1; // Default to English
 	}
 }
