@@ -12,10 +12,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import lib.Logger;
 import lib.OSProperties;
+
+import org.apache.commons.io.FileUtils;
 
 public class File_System_Model
 {
@@ -132,9 +137,9 @@ public class File_System_Model
 			success = new File(name).createNewFile();
 
 			if (!success)
-				System.out.println("Error creating file [" + name + "] during installation...");
+				Logger.write("Error creating file: " + name, Logger.Level.ERROR);
 			else
-				System.out.println("Creating file [" + name + "]");
+				Logger.write("Creating file: " + name, Logger.Level.SYSTEM);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -158,7 +163,7 @@ public class File_System_Model
 			out.close();
 			return true;
 		} catch (IOException e) {
-			System.out.println( "Could not append line... File not found?" );
+			Logger.write("Could not append line... File not found?", Logger.Level.ERROR);
 			e.printStackTrace();
 		}
 		return false;
@@ -180,7 +185,8 @@ public class File_System_Model
 		fromFileText = readLines(fromFile);
 
 		// Now write to the new file
-		try {
+		try
+		{
 			fw = new FileWriter(toFile);
 			out = new BufferedWriter(fw);
 
@@ -193,9 +199,9 @@ public class File_System_Model
 			out.close();			
 			fw.close();
 
-			System.out.println("Populating file [" + toFile + "]");
+			Logger.write("Populated file: " + toFile.substring(toFile.lastIndexOf(osp.getSeparator()) + 1), Logger.Level.SYSTEM);
 		} catch (IOException e) {
-			System.out.println( "IOException while writing to the file [" + toFile + "]" );
+			Logger.write("IOException while writing to file: " + toFile.substring(toFile.lastIndexOf(osp.getSeparator()) + 1), Logger.Level.ERROR);
 		}
 	}
 
@@ -339,5 +345,25 @@ public class File_System_Model
 		File[] file = new File(getDirectoryPath(dir)).listFiles();
 
 		return file;
+	}
+
+	public boolean copyFileToDirectory(String from, String to)
+	{
+		URL inputUrl = null;
+		try {
+			inputUrl = new URL(from);
+		} catch (MalformedURLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		File dest = new File(to);
+		try {
+			FileUtils.copyURLToFile(inputUrl, dest);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 }
