@@ -2,14 +2,13 @@ import java.io.File;
 
 import javax.swing.SwingUtilities;
 
+import lib.Logger;
 import controllers.Account_Controller;
 import controllers.Config_Controller;
 import controllers.DMS_Controller;
 import controllers.File_System_Controller;
 import controllers.Install_Controller;
 import controllers.Product_Key_Controller;
-
-import lib.Logger;
 
 /**
  * <p>The DaycareApp class instantiates the entire program on its own thread,
@@ -35,7 +34,6 @@ class DaycareApp
 					{
 						new Install_Controller().showView();
 						Logger.write("Program installed.", Logger.Level.INFO);
-						System.out.println("Program installed.");
 					}
 
 					// Prompt the user to enter a product key if they haven't already
