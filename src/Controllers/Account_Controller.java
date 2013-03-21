@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import lib.Logger;
+import lib.OSProperties;
+
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
@@ -11,8 +14,6 @@ import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
 import views.Account_View;
-
-import lib.OSProperties;
 
 /**
  * Facilitates communication between the Account_View class and the
@@ -57,7 +58,7 @@ public class Account_Controller
 			doc = builder.build(new File(new File_System_Controller().getModel().findFile(accountFile)));
 			root = doc.getRootElement();
 		} catch (Exception e) {
-			System.out.println( "ERROR: Account file could not be found." );
+			Logger.write("Account file could not be found.", Logger.Level.ERROR);
 		}
 	}
 
@@ -82,14 +83,14 @@ public class Account_Controller
 			outputter.setFormat(Format.getPrettyFormat());
 			outputter.output(doc, writer); // Save the new document
 		} catch (IOException e) {
-			System.out.println( "SYSTEM: IOException while writing new XML file." );
+			Logger.write("IOException while writing new XML file", Logger.Level.ERROR);
 		}
 	}
 
 	public void setUsername(String n)
 	{
 		root.getChild("username").setText(n);
-		System.out.println("SYSTEM: Account username set to " + n);
+		Logger.write("Account username set to " + n, Logger.Level.SYSTEM);
 		saveFile();
 	}
 
@@ -101,7 +102,7 @@ public class Account_Controller
 	public void setPassword(String p)
 	{
 		root.getChild("password").setText(p);
-		System.out.println("SYSTEM: Account password set to " + p);
+		Logger.write("Account password set to " + p, Logger.Level.SYSTEM);
 		saveFile();
 	}
 
@@ -113,7 +114,7 @@ public class Account_Controller
 	public void setLastLogin(String l)
 	{
 		root.getChild("lastLogin").setText(l);
-		System.out.println("SYSTEM: Account lastLogin set to " + l);
+		Logger.write("Account lastlogin set to " + l, Logger.Level.SYSTEM);
 		saveFile();
 	}
 
