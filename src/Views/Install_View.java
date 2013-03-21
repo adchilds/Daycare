@@ -22,14 +22,13 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
+import lib.OSProperties;
+import lib.RoundedBorder;
+import models.Language_Model;
 import controllers.File_System_Controller;
 import controllers.Image_Controller;
 import controllers.Install_Controller;
 import controllers.Language_Controller;
-
-import lib.OSProperties;
-import lib.RoundedBorder;
-import models.Language_Model;
 
 /**
  * <p>Controls the view of the installation screen.
@@ -78,10 +77,10 @@ public class Install_View implements ActionListener, KeyListener
 			dialog.setSize(590, 425); // width, height
 
 		dialog.setContentPane(container);
-		dialog.setIconImage(images.loadImage("../images/program_icon_small.png").getImage());
+		dialog.setIconImage(images.loadImage("Images/program_icon_small.png").getImage());
 		dialog.setLocationRelativeTo(null);
 		dialog.setModal(true);
-		dialog.setTitle(lang_model.getInstallText("title") + version);
+		dialog.setTitle(lang_model.getValue(3) + version);
 		dialog.setResizable(false);
 		dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		dialog.setVisible(true);
@@ -101,7 +100,7 @@ public class Install_View implements ActionListener, KeyListener
 		 * Welcome label
 		 */
 		textPane = new JTextPane();
-		textPane.setText(lang_model.getInstallText("welcome") + version + lang_model.getInstallText("setup_wiz"));
+		textPane.setText(lang_model.getValue(4) + version + lang_model.getValue(5));
 		textPane.setFont(new Font("Book Antiqua", Font.PLAIN, 24));
 		textPane.setPreferredSize(new Dimension(300, 100)); // width height
 		textPane.setEditable(false);
@@ -118,9 +117,9 @@ public class Install_View implements ActionListener, KeyListener
 		 */
 		JPanel textPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		textArea = new JTextArea();
-		textArea.setText(lang_model.getInstallText("this_will") + version + lang_model.getInstallText("on_your") + "\n\n" +
-						 lang_model.getInstallText("it_is") + "\n\n" +
-						 lang_model.getInstallText("click_install"));
+		textArea.setText(lang_model.getValue(6) + version + lang_model.getValue(7) + "\n\n" +
+						 lang_model.getValue(8) + "\n\n" +
+						 lang_model.getValue(9));
 		textArea.setPreferredSize(new Dimension(300, 400)); // width height
 		textArea.setEditable(false);
 		textArea.setOpaque(false);
@@ -133,8 +132,8 @@ public class Install_View implements ActionListener, KeyListener
 		 * Install Button
 		 */
 		buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-		button = new JButton(lang_model.getInstallText("install"));
-		button.setIcon(images.loadImage("../images/accept_icon.png"));
+		button = new JButton(lang_model.getValue(10));
+		button.setIcon(images.loadImage("Images/accept_icon.png"));
 		button.setBorder(new RoundedBorder(5));
 		//button.setPreferredSize(new Dimension(75, 30));
 		button.setToolTipText("Install the Program");
@@ -147,8 +146,8 @@ public class Install_View implements ActionListener, KeyListener
 		/*
 		 * Cancel Button
 		 */
-		button = new JButton(lang_model.getInstallText("cancel"));
-		button.setIcon(images.loadImage("../images/cross_icon.png"));
+		button = new JButton(lang_model.getValue(11));
+		button.setIcon(images.loadImage("Images/cross_icon.png"));
 		button.setBorder(new RoundedBorder(5));
 		//button.setPreferredSize(new Dimension(75, 30));
 		button.setToolTipText("Exit the setup");
@@ -167,7 +166,7 @@ public class Install_View implements ActionListener, KeyListener
 		/*
 		 * JPanel holding the image for the program
 		 */
-		label = new JLabel(images.loadImage("../images/install_splash.png"));
+		label = new JLabel(images.loadImage("Images/install_splash.png"));
 		label.setPreferredSize(new Dimension(250, 400));
 
 		p.add(label, BorderLayout.WEST); // Image
