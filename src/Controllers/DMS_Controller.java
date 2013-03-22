@@ -95,8 +95,6 @@ public class DMS_Controller
 					JOptionPane.INFORMATION_MESSAGE);
 
 			config_file.setWelcomeMessage(!checkbox.isSelected());
-		} else {
-			System.out.println("SYSTEM: Welcome message not shown. Config file reads false.");
 		}
 	}
 
