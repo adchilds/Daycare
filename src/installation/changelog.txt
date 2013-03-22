@@ -69,3 +69,7 @@ Version 1.09 (03/21/2013):
 	- Bug Reporting System
 		- Uses Google Mail (gmail)
 		- Allows users to report bugs in the program
+
+Version 1.10 (03/22/2013):
+	- Employee saving fixed
+	- Installation fixed when using *.jar file or eclipse.

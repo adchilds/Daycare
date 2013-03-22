@@ -1098,7 +1098,11 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		// Save employee's drivers license information:
 		Element drivers_license = new Element( "driversLicense" );
 		root.addContent(drivers_license);
-		Element employee_license_number = new Element( "number" ).setText(employeeTextField[27].getText());
+		Element employee_license_number = new Element( "number" );
+		if (employeeTextField[27] == null)
+			employee_license_number.setText("");
+		else
+			employee_license_number.setText(employeeTextField[27].getText());
 		drivers_license.addContent(employee_license_number);
 		Element employee_state_issued = new Element( "stateIssued" ).setText((String)state[1]);
 		drivers_license.addContent(employee_state_issued);
@@ -1106,77 +1110,127 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		// Save employee's medical information:
 		Element employee_medical_info = new Element( "medical" );
 		root.addContent(employee_medical_info);
-		Element employee_doctor_name = new Element( "doctorName" ).setText(employeeTextField[6].getText());
+		Element employee_doctor_name = new Element( "doctorName" );
+		if (employeeTextField[6] != null)
+			employee_doctor_name.setText(employeeTextField[6].getText());
 		employee_medical_info.addContent(employee_doctor_name);
 		Element employee_doctor_phone = new Element( "doctorPhone" );
-		if (!employeeTextField[7].getText().matches("012-345-6789"))
-			employee_doctor_phone.setText(employeeTextField[7].getText());
-		root.getChild("medical").addContent(new Element("concernsOrAllergies").setText(employeeTextArea[0].getText()));
-		root.getChild("medical").addContent(new Element("hospitalPreference").setText(employeeTextField[8].getText()));
-		root.getChild("medical").addContent(new Element("insurance"));
-		root.getChild("medical").getChild("insurance").addContent(new Element("company").setText(employeeTextField[9].getText()));
-		root.getChild("medical").getChild("insurance").addContent(new Element("policyNumber").setText(employeeTextField[10].getText()));
+		if (employeeTextField[7] != null)
+			if (!employeeTextField[7].getText().matches("012-345-6789"))
+				employee_doctor_phone.setText(employeeTextField[7].getText());
 		employee_medical_info.addContent(employee_doctor_phone);
+		Element employee_allergies = new Element("concernsOrAllergies");
+		if (employeeTextArea[0] != null)
+			employee_allergies.setText(employeeTextArea[0].getText());
+		root.getChild("medical").addContent(employee_allergies);
+		Element employee_hospital = new Element("hospitalPreference");
+		if (employeeTextField[8] != null)
+			employee_hospital.setText(employeeTextField[8].getText());
+		root.getChild("medical").addContent(employee_hospital);
+		Element employee_insurance = new Element("insurance");
+		Element employee_insurance_company = new Element("company");
+		employee_insurance.addContent(employee_insurance_company);
+		if (employeeTextField[9] != null)
+			employee_insurance_company.setText(employeeTextField[9].getText());
+		Element employee_insurance_pn = new Element("policyNumber");
+		employee_insurance.addContent(employee_insurance_pn);
+		if (employeeTextField[10] != null)
+			employee_insurance_pn.setText(employeeTextField[10].getText());
 
 		// Save special information:
-		root.addContent(new Element( "special" ).setText(employeeTextArea[1].getText()));
+		Element employee_special = new Element( "special" );
+		root.addContent(employee_special);
+		if (employeeTextArea[1] != null)
+			employee_special.setText(employeeTextArea[1].getText());
 
+// TODO: Fix saving (NullPointerExceptions) if user hasn't filled in a field
 		// Save employee's emergency contact information:
 		Element employee_emergency_contacts = new Element( "emergencyContacts" );
 		root.addContent(employee_emergency_contacts);
 		// First contact
 		Element emergency_contact_one = new Element( "one" );
 		employee_emergency_contacts.addContent(emergency_contact_one);
-		Element e_contact_one_name = new Element( "name" ).setText(employeeTextField[11].getText());
+		Element e_contact_one_name = new Element( "name" );
+		if (employeeTextField[11] != null)
+			e_contact_one_name.setText(employeeTextField[11].getText());
 		emergency_contact_one.addContent(e_contact_one_name);
-		Element e_contact_one_relation = new Element( "relationship" ).setText(employeeTextField[12].getText());
+		Element e_contact_one_relation = new Element( "relationship" );
+		if (employeeTextField[12] != null)
+			e_contact_one_relation.setText(employeeTextField[12].getText());
 		emergency_contact_one.addContent(e_contact_one_relation);
-		Element e_contact_one_number = new Element( "contactNumber" ).setText(employeeTextField[13].getText());
+		Element e_contact_one_number = new Element( "contactNumber" );
+		if (employeeTextField[13] != null)
+			e_contact_one_number.setText(employeeTextField[13].getText());
 		emergency_contact_one.addContent(e_contact_one_number);
-		Element e_contact_one_secnumber = new Element( "secondaryNumber" ).setText(employeeTextField[14].getText());
+		Element e_contact_one_secnumber = new Element( "secondaryNumber" );
+		if (employeeTextField[14] != null)
+			e_contact_one_secnumber.setText(employeeTextField[14].getText());
 		emergency_contact_one.addContent(e_contact_one_secnumber);
-		Element e_contact_one_address = new Element( "address" ).setText(employeeTextField[15].getText());
+		Element e_contact_one_address = new Element( "address" );
+		if (employeeTextField[15] != null)
+			e_contact_one_address.setText(employeeTextField[15].getText());
 		emergency_contact_one.addContent(e_contact_one_address);
 		// Second contact
 		Element emergency_contact_two = new Element( "two" );
 		employee_emergency_contacts.addContent(emergency_contact_two);
-		Element e_contact_two_name = new Element( "name" ).setText(employeeTextField[16].getText());
+		Element e_contact_two_name = new Element( "name" );
+		if (employeeTextField[16] != null)
+			e_contact_two_name.setText(employeeTextField[16].getText());
 		emergency_contact_two.addContent(e_contact_two_name);
-		Element e_contact_two_relation = new Element( "relationship" ).setText(employeeTextField[17].getText());
+		Element e_contact_two_relation = new Element( "relationship" );
+		if (employeeTextField[17] != null)
+			e_contact_two_relation.setText(employeeTextField[17].getText());
 		emergency_contact_two.addContent(e_contact_two_relation);
-		Element e_contact_two_number = new Element( "contactNumber" ).setText(employeeTextField[18].getText());
+		Element e_contact_two_number = new Element( "contactNumber" );
+		if (employeeTextField[18] != null)
+			e_contact_two_number.setText(employeeTextField[18].getText());
 		emergency_contact_two.addContent(e_contact_two_number);
-		Element e_contact_two_secnumber = new Element( "secondaryNumber" ).setText(employeeTextField[19].getText());
+		Element e_contact_two_secnumber = new Element( "secondaryNumber" );
+		if (employeeTextField[19] != null)
+			e_contact_two_secnumber.setText(employeeTextField[19].getText());
 		emergency_contact_two.addContent(e_contact_two_secnumber);
-		Element e_contact_two_address = new Element( "address" ).setText(employeeTextField[20].getText());
+		Element e_contact_two_address = new Element( "address" );
+		if (employeeTextField[20] != null)
+			e_contact_two_address.setText(employeeTextField[20].getText());
 		emergency_contact_two.addContent(e_contact_two_address);
 
 		Element contact_info = new Element( "contact" );
-		contact_info.addContent(new Element("home").setText(employeeTextField[22].getText()));
-		contact_info.addContent(new Element("cell").setText(employeeTextField[23].getText()));
+		Element home = new Element("home");
+		if (employeeTextField[22] != null)
+			home.setText(employeeTextField[22].getText());
+		contact_info.addContent(home);
+		Element cell = new Element("cell");
+		if (employeeTextField[23] != null)
+			cell.setText(employeeTextField[23].getText());
+		contact_info.addContent(cell);
 		root.addContent(contact_info);
 
 		// Save employee's hire date:
 		Element employee_hire_date = new Element( "hireDate" );
-		if (!employeeTextField[29].getText().matches("mm/dd/yyyy"))
-			employee_hire_date.setText(employeeTextField[29].getText());
+		if (employeeTextField[29] != null)
+			if (!employeeTextField[29].getText().matches("mm/dd/yyyy"))
+				employee_hire_date.setText(employeeTextField[29].getText());
 		root.addContent(employee_hire_date);
 
 		// Save employee's w4 allowances:
 		Element employee_w4_allowance = new Element( "w4allowance" );
-		if (!employeeTextField[30].getText().matches("000.00"))
-			employee_w4_allowance.setText(employeeTextField[30].getText());
+		if (employeeTextField[30] != null)
+			if (!employeeTextField[30].getText().matches("000.00"))
+				employee_w4_allowance.setText(employeeTextField[30].getText());
 		root.addContent(employee_w4_allowance);
 
 		// Save employee's salary:
-		Element quoted_rate;
+		Element quoted_rate = new Element("rate");
 		Element employee_salary = new Element( "salary" );
 		root.addContent(employee_salary);
-		if (employeeTextField[28].getText().matches("00000.00"))
-			quoted_rate = new Element( "rate" ).setText("00.00");
-		else
-			quoted_rate = new Element( "rate" ).setText(employeeTextField[28].getText());
-		Element quoted_interval = new Element( "payCycle" ).setText((String)rateBox.getSelectedItem());
+		if (employeeTextField[28] != null)
+			if (employeeTextField[28].getText().matches("00000.00"))
+				quoted_rate.setText("00.00");
+			else
+				quoted_rate.setText(employeeTextField[28].getText());
+		Element quoted_interval = new Element( "payCycle" );
+		if (rateBox != null)
+			quoted_interval.setText((String)rateBox.getSelectedItem());
 		employee_salary.addContent(quoted_rate);
 		employee_salary.addContent(quoted_interval);
 
@@ -1184,12 +1238,15 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 		root.addContent(form_element);
 
 		int m = 0;
-		for (JCheckBox i : formBoxes)
+		if (formBoxes != null)
 		{
-			String str = formBoxes.get(m).getText().replaceAll(" ", "_");
-
-			form_element.addContent(new Element( str ).setText(Boolean.toString(i.isSelected())));
-			m++;
+			for (JCheckBox i : formBoxes)
+			{
+				String str = formBoxes.get(m).getText().replaceAll(" ", "_");
+	
+				form_element.addContent(new Element( str ).setText(Boolean.toString(i.isSelected())));
+				m++;
+			}
 		}
 
 		saveXMLFile(name, doc);
