@@ -44,6 +44,7 @@ import lib.FixedSizeDocument;
 import lib.Logger;
 import lib.OSProperties;
 import lib.RoundedBorder;
+import models.Language_Model;
 
 import org.jdom.Document;
 import org.jdom.Element;
@@ -54,6 +55,7 @@ import controllers.Child_Controller;
 import controllers.File_System_Controller;
 import controllers.Guardian_Controller;
 import controllers.Image_Controller;
+import controllers.Language_Controller;
 
 
 /**
@@ -86,6 +88,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 	JTextField[] childTextField = new JTextField[12];
 	JTextField[] parentNameTextField = null;
 	JTextField[] scheduleField = new JTextField[7];
+	Language_Model lang_model = new Language_Controller().getModel();
 	Object month, day, year, state, quote = "Weekly";
 	OSProperties osp = new OSProperties();
 	Point loc;
@@ -95,10 +98,13 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 			"NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
 			"SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
 	};
-	final String[] rates = { "Hourly", "Daily", "Weekly", "Monthly", "Yearly" };
-	final String[] months = { "January", "February", "March", "April", "May",
-			"June", "July", "August", "September", "October",
-			"November", "December"
+	final String[] rates = { lang_model.getValue(73), lang_model.getValue(74), lang_model.getValue(75),
+							lang_model.getValue(76), lang_model.getValue(77)
+	};
+	final String[] months = { lang_model.getValue(49), lang_model.getValue(50), lang_model.getValue(51),
+							lang_model.getValue(52), lang_model.getValue(53), lang_model.getValue(54),
+							lang_model.getValue(55), lang_model.getValue(56), lang_model.getValue(57),
+							lang_model.getValue(58), lang_model.getValue(59), lang_model.getValue(60)
 	};
 
 	public Child_View(Child_Controller parent)
@@ -115,7 +121,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		} catch (PropertyVetoException e1) {
 			e1.printStackTrace();
 		}
-		iframe.setTitle("Add New Child");
+		iframe.setTitle(lang_model.getValue(41));
 
 		iframe.add(firstScreen());
 
@@ -136,10 +142,10 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 	 */
 	public JPanel firstScreen()
 	{
-		iframe.setTitle("Add New Child - Page 1/4");
+		iframe.setTitle(lang_model.getValue(41) + " - " + lang_model.getValue(42) + " 1/4");
 
 		JPanel p = new JPanel(new BorderLayout());
-			p.setBorder(BorderFactory.createTitledBorder("Child Information"));
+			p.setBorder(BorderFactory.createTitledBorder(lang_model.getValue(43)));
 		JPanel panel;
 		JLabel label;
 
@@ -180,25 +186,25 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		// North.Center Panel
 		JPanel northCenterPanel = new JPanel(new GridLayout(0, 1));
 		JPanel general = new JPanel(new BorderLayout());
-		general.setBorder(BorderFactory.createTitledBorder("General"));
+		general.setBorder(BorderFactory.createTitledBorder(lang_model.getValue(44)));
 
 		// Panel One
 		// Child Name
 		panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		label = new JLabel( "First Name:" );
+		label = new JLabel( lang_model.getValue(45) );
 		panel.add(label);
 		
 		childTextField[0] = new JTextField(8);
 		childTextField[0].addKeyListener(this);
 		panel.add(childTextField[0]);
 
-		label = new JLabel( "Middle Initial:" );
+		label = new JLabel( lang_model.getValue(46) );
 		panel.add(label);
 
 		childTextField[1] = new JTextField(2);
 		panel.add(childTextField[1]);
 
-		label = new JLabel( "Last Name:" );
+		label = new JLabel( lang_model.getValue(47) );
 		panel.add(label);
 
 		childTextField[2] = new JTextField(8);
@@ -210,7 +216,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		// Panel Two
 		// Child Birth date
 		panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		label = new JLabel( "Birthdate:" );
+		label = new JLabel( lang_model.getValue(48) );
 		panel.add(label);
 
 		monthBox = new JComboBox(months);
@@ -230,7 +236,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		label = new JLabel(images.loadImage("Images/user_male_icon.png"));
 		panel.add(label);
 
-		sexMale = new JRadioButton("Male", true);
+		sexMale = new JRadioButton(lang_model.getValue(61), true);
 		sexMale.setActionCommand("sexMale");
 		sexMale.addActionListener(this);
 		panel.add(sexMale);
@@ -238,7 +244,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		label = new JLabel(images.loadImage("Images/user_female_icon.png"));
 		panel.add(label);
 
-		sexFemale = new JRadioButton("Female", false);
+		sexFemale = new JRadioButton(lang_model.getValue(62), false);
 		sexFemale.setActionCommand("sexFemale");
 		sexFemale.addActionListener(this);
 		panel.add(sexFemale);
@@ -253,20 +259,20 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		 */	
 		JPanel centerPanel = new JPanel(new BorderLayout());
 		JPanel address = new JPanel(new BorderLayout());
-		address.setBorder(BorderFactory.createTitledBorder("Address"));
+		address.setBorder(BorderFactory.createTitledBorder(lang_model.getValue(63)));
 
 		/*
 		 * Child Address
 		 */
 		// North panel
 		panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		label = new JLabel( "Street:" );
+		label = new JLabel( lang_model.getValue(64) );
 		panel.add(label);
 
 		childTextField[3] = new JTextField(21);
 		panel.add(childTextField[3]);
 
-		label = new JLabel( "City:" );
+		label = new JLabel( lang_model.getValue(65) );
 		panel.add(label);
 
 		childTextField[4] = new JTextField(21);
@@ -277,7 +283,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		// South panel
 		panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
-		label = new JLabel( "State:" );
+		label = new JLabel( lang_model.getValue(66) );
 		panel.add(label);
 
 		stateBox = new JComboBox[4];
@@ -285,7 +291,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		stateBox[0].setSelectedItem("ME");
 		panel.add(stateBox[0]);
 
-		label = new JLabel( "Zip Code:");
+		label = new JLabel( lang_model.getValue(67) );
 		panel.add(label);
 
 		childTextField[5] = new JTextField(4);
@@ -305,10 +311,10 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 	 */
 	public JPanel secondScreen()
 	{
-		iframe.setTitle("Add New Child - Page 2/4");
+		iframe.setTitle(lang_model.getValue(41) + " - " + lang_model.getValue(42) + " 2/4");
 
 		JPanel p = new JPanel(new BorderLayout());
-			p.setBorder(BorderFactory.createTitledBorder("Child Information"));
+			p.setBorder(BorderFactory.createTitledBorder(lang_model.getValue(43)));
 		JPanel panel, centerPanel;
 		JLabel label;
 
@@ -317,17 +323,17 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		 */
 		centerPanel = new JPanel(new BorderLayout());
 		JPanel medical = new JPanel(new BorderLayout());
-		medical.setBorder(BorderFactory.createTitledBorder("Medical"));
+		medical.setBorder(BorderFactory.createTitledBorder(lang_model.getValue(78)));
 
 		panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		// Doctor information
-		label = new JLabel( "Doctor Name:" );
+		label = new JLabel( lang_model.getValue(79) );
 		panel.add(label);
 
 		childTextField[6] = new JTextField(17);
 		panel.add(childTextField[6]);
 
-		label = new JLabel( "Doctor Phone:" );
+		label = new JLabel( lang_model.getValue(80) );
 		panel.add(label);
 
 		childTextField[7] = new JTextField(16);
@@ -341,12 +347,12 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 
 		JPanel cPanel = new JPanel(new BorderLayout());
 		panel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 0));
-		label = new JLabel("Concerns/Allergies:");
+		label = new JLabel( lang_model.getValue(81) );
 		panel.add(label);
 		cPanel.add(panel, BorderLayout.NORTH);
 
 		// Medical Information JTextArea
-		panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		panel = new JPanel();
 		childTextArea[0] = new JTextArea();
 		JScrollPane scrollPane = new JScrollPane(childTextArea[0]);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -366,7 +372,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		JPanel southNorthPanel = new JPanel();
 		JPanel southSouthPanel = new JPanel();
 
-		label = new JLabel( "Hospital Preference:" );
+		label = new JLabel( lang_model.getValue(82) );
 		if (osp.isMac())
 			if (osp.isHighResolution())
 				childTextField[9] = new JTextField(39);
@@ -377,7 +383,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		southNorthPanel.add(label);
 		southNorthPanel.add(childTextField[9]);
 
-		label = new JLabel( "Insurance Company:" );
+		label = new JLabel( lang_model.getValue(83) );
 		if (osp.isHighResolution())
 			childTextField[10] = new JTextField(15);
 		else
@@ -385,7 +391,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		southSouthPanel.add(label);
 		southSouthPanel.add(childTextField[10]);
 
-		label = new JLabel( "Policy Number:" );
+		label = new JLabel( lang_model.getValue(84) );
 		if (osp.isHighResolution())
 			childTextField[11] = new JTextField(14);
 		else
@@ -410,18 +416,18 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 	 */
 	private JPanel thirdScreen()
 	{
-		iframe.setTitle("Add New Child - Page 3/4");
+		iframe.setTitle(lang_model.getValue(41) + " - " + lang_model.getValue(42) + " 3/4");
 
 		JPanel p = new JPanel(new BorderLayout());
-			p.setBorder(BorderFactory.createTitledBorder("Child Information"));
+			p.setBorder(BorderFactory.createTitledBorder(lang_model.getValue(43)));
 
 		// Special information
-		JPanel special = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		special.setBorder(BorderFactory.createTitledBorder("Special Notes"));
+		JPanel special = new JPanel();
+		special.setBorder(BorderFactory.createTitledBorder(lang_model.getValue(85)));
 		childTextArea[1] = new JTextArea();
 		JScrollPane scrollPane = new JScrollPane(childTextArea[1]);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		
+
 		if (osp.isMac())
 		{
 			if (osp.isHighResolution())
@@ -429,9 +435,10 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		} else {		
 			scrollPane.setPreferredSize(new Dimension(510, 175));
 		}
+
 		special.add(scrollPane);
 
-		p.add(special, BorderLayout.NORTH);
+		p.add(special, BorderLayout.CENTER);
 		p.add(buttonPanel(true, true, doneButtonEnabled), BorderLayout.SOUTH);
 
 		return p;
@@ -442,10 +449,10 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 	 */
 	private JPanel fourthScreen()
 	{
-		iframe.setTitle("Add New Child - Page 4/4");
+		iframe.setTitle(lang_model.getValue(41) + " - " + lang_model.getValue(42) + " 4/4");
 
 		JPanel p = new JPanel(new BorderLayout());
-			p.setBorder(BorderFactory.createTitledBorder("Child Information"));
+			p.setBorder(BorderFactory.createTitledBorder(lang_model.getValue(43)));
 		JLabel label;
 
 		/*
@@ -453,14 +460,14 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		 */
 		// Schedule of Care
 		JPanel westPanel = new JPanel(new GridLayout(0, 2));
-		westPanel.setBorder(BorderFactory.createTitledBorder("Schedule"));
+		westPanel.setBorder(BorderFactory.createTitledBorder( lang_model.getValue(86) ));
 
 		// Row #1
-		westPanel.add(new JLabel("Days:"));
-		westPanel.add(new JLabel("Hours:"));
+		westPanel.add(new JLabel( lang_model.getValue(87) ));
+		westPanel.add(new JLabel( lang_model.getValue(88) ));
 
 		// Monday
-		childCheckBox[0] = new JCheckBox("Monday");
+		childCheckBox[0] = new JCheckBox( lang_model.getValue(89) );
 		childCheckBox[0].setForeground(Color.GRAY);
 		childCheckBox[0].setActionCommand("3");
 		childCheckBox[0].addActionListener(this);
@@ -471,7 +478,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		westPanel.add(scheduleField[0]);
 
 		// Tuesday
-		childCheckBox[1] = new JCheckBox("Tuesday");
+		childCheckBox[1] = new JCheckBox( lang_model.getValue(90) );
 		childCheckBox[1].setForeground(Color.GRAY);
 		childCheckBox[1].setActionCommand("4");
 		childCheckBox[1].addActionListener(this);
@@ -482,7 +489,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		westPanel.add(scheduleField[1]);
 
 		// Wednesday
-		childCheckBox[2] = new JCheckBox("Wednesday");
+		childCheckBox[2] = new JCheckBox( lang_model.getValue(91) );
 		childCheckBox[2].setForeground(Color.GRAY);
 		childCheckBox[2].setActionCommand("5");
 		childCheckBox[2].addActionListener(this);
@@ -493,7 +500,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		westPanel.add(scheduleField[2]);
 
 		// Thursday
-		childCheckBox[3] = new JCheckBox("Thursday");
+		childCheckBox[3] = new JCheckBox( lang_model.getValue(92) );
 		childCheckBox[3].setForeground(Color.GRAY);
 		childCheckBox[3].setActionCommand("6");
 		childCheckBox[3].addActionListener(this);
@@ -504,7 +511,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		westPanel.add(scheduleField[3]);
 
 		// Friday
-		childCheckBox[4] = new JCheckBox("Friday");
+		childCheckBox[4] = new JCheckBox( lang_model.getValue(93) );
 		childCheckBox[4].setForeground(Color.GRAY);
 		childCheckBox[4].setActionCommand("7");
 		childCheckBox[4].addActionListener(this);
@@ -515,7 +522,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		westPanel.add(scheduleField[4]);
 
 		// Saturday
-		childCheckBox[5] = new JCheckBox("Saturday");
+		childCheckBox[5] = new JCheckBox( lang_model.getValue(94) );
 		childCheckBox[5].setForeground(Color.GRAY);
 		childCheckBox[5].setActionCommand("8");
 		childCheckBox[5].addActionListener(this);
@@ -526,7 +533,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		westPanel.add(scheduleField[5]);
 
 		// Sunday
-		childCheckBox[6] = new JCheckBox("Sunday");
+		childCheckBox[6] = new JCheckBox( lang_model.getValue(95) );
 		childCheckBox[6].setForeground(Color.GRAY);
 		childCheckBox[6].setActionCommand("9");
 		childCheckBox[6].addActionListener(this);
@@ -541,7 +548,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		 */
 		JPanel centerPanel = new JPanel(new BorderLayout());
 		JPanel ratePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-			ratePanel.setBorder(BorderFactory.createTitledBorder("Quoted Rate"));
+			ratePanel.setBorder(BorderFactory.createTitledBorder( lang_model.getValue(96) ));
 
 		label = new JLabel(images.loadImage("Images/money_dollar_icon.png"));
 		ratePanel.add(label);
@@ -553,15 +560,15 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		ratePanel.add(childTextField[8]);
 
 		rateBox = new JComboBox(rates);
-		rateBox.setSelectedItem("Weekly");
+		rateBox.setSelectedItem( lang_model.getValue(75) );
 		ratePanel.add(rateBox);
 
 		JPanel parentPanel = new JPanel(new BorderLayout(5, 0));
-		parentPanel.setBorder(BorderFactory.createTitledBorder("Guardian Information"));
+		parentPanel.setBorder(BorderFactory.createTitledBorder( lang_model.getValue(98) ));
 		JPanel pWestPanel = new JPanel(new BorderLayout());
 		JPanel pCenterPanel = new JPanel(new BorderLayout());
 		JPanel pEastPanel = new JPanel(new BorderLayout());
-		String[] pOptions = { "Mother", "Father", "Other", "None" };
+		String[] pOptions = { lang_model.getValue(99), lang_model.getValue(100), lang_model.getValue(101), lang_model.getValue(102) };
 		Object[] lo = { BorderLayout.NORTH, BorderLayout.CENTER, BorderLayout.SOUTH };
 
 		// West North panel
@@ -593,7 +600,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		{
 			button = new JButton();
 			button.setIcon(images.loadImage("Images/edit_icon.png"));
-			button.setToolTipText("Edit Information");
+			button.setToolTipText( lang_model.getValue(103) );
 			button.setPreferredSize(new Dimension(25, 25));
 			button.setBorder(new RoundedBorder(5));
 			button.setMargin(new Insets(0, 0, 0, 5));
@@ -625,42 +632,42 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		JPanel p = new JPanel(new FlowLayout(FlowLayout.TRAILING));
 		JButton button;
 
-		button = new JButton("Back");
+		button = new JButton( lang_model.getValue(68) );
 		button.setIcon(images.loadImage("Images/arrow_left_icon.png"));
 		button.setActionCommand("backbutton");
-		button.setToolTipText("Back");
+		button.setToolTipText( lang_model.getValue(68) );
 		button.addActionListener(this);
 		button.setPreferredSize(new Dimension(75, 25));
 		button.setBorder(new RoundedBorder(5));
 		button.setEnabled(back);
 		p.add(button);
 
-		button = new JButton("Next");
+		button = new JButton( lang_model.getValue(69) );
 		button.setIcon(images.loadImage("Images/arrow_right_icon.png"));
 		button.setActionCommand("nextbutton");
-		button.setToolTipText("Next");
+		button.setToolTipText( lang_model.getValue(69) );
 		button.addActionListener(this);
 		button.setPreferredSize(new Dimension(75, 25));
 		button.setBorder(new RoundedBorder(5));
 		button.setEnabled(next);
 		p.add(button);
 
-		doneButton = new JButton("Done");
+		doneButton = new JButton( lang_model.getValue(70) );
 		doneButton.setIcon(images.loadImage("Images/accept_icon.png"));
 		doneButton.setActionCommand("donebutton");
 		if (doneButtonEnabled)
-			doneButton.setToolTipText("Save Child");
+			doneButton.setToolTipText( lang_model.getValue(71) );
 		else
-			doneButton.setToolTipText("You must provide the child's first and last name");
+			doneButton.setToolTipText( lang_model.getValue(72) );
 		doneButton.addActionListener(this);
 		doneButton.setPreferredSize(new Dimension(75, 25));
 		doneButton.setBorder(new RoundedBorder(5));
 		doneButton.setEnabled(done);
 		p.add(doneButton);
 
-		button = new JButton("Cancel");
+		button = new JButton( lang_model.getValue(11) );
 		button.setIcon(images.loadImage("Images/cross_icon.png"));
-		button.setToolTipText("Cancel");
+		button.setToolTipText( lang_model.getValue(11) );
 		button.setActionCommand("cancelbutton");
 		button.addActionListener(this);
 		button.setPreferredSize(new Dimension(75, 25));
@@ -872,7 +879,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 			if (guardianComboBox[i] == null)
 			{
 				guardianComboBox[i] = new JComboBox();
-				guardianComboBox[i].setSelectedItem("None");
+				guardianComboBox[i].setSelectedItem(lang_model.getValue(102));
 			}
 		for (int i = 0; i < 3; i++)
 		{
@@ -1033,7 +1040,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 			XMLOutputter outputter = new XMLOutputter();
 			outputter.setFormat(Format.getPrettyFormat());
 			outputter.output(doc, writer); // Save the new document
-			System.out.println( "SYSTEM: Saved new child XML file:\n" + childname + ".xml" );
+			Logger.write("Saved new child XML file: " + childname + ".xml", Logger.Level.SYSTEM);
 		} catch (IOException e) {
 			Logger.write("IOException: Could not save new child XML file.", Logger.Level.ERROR);
 		}
@@ -1063,19 +1070,16 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 			if (currentPanel == 1)
 			{
 				panel = secondScreen();
-				iframe.setTitle("Add New Child - Page 2/4"); 
 				currentPanel++;
 			}
 			else if (currentPanel == 2)
 			{
 				panel = thirdScreen();
-				iframe.setTitle("Add New Child - Page 3/4");
 				currentPanel++;
 			}
 			else if (currentPanel == 3)
 			{
 				panel = fourthScreen();
-				iframe.setTitle("Add New Child - Page 4/4");
 				currentPanel++;
 			}
 			c.removeAll();
@@ -1117,7 +1121,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		{
 			if (childTextField[0].getText().equals("") || childTextField[2].getText().equals(""))
 			{
-				JOptionPane.showMessageDialog(null, "You must specify the child's first and last name.", "Error!", JOptionPane.ERROR_MESSAGE );
+				JOptionPane.showMessageDialog(null, lang_model.getValue(72), lang_model.getValue(104), JOptionPane.ERROR_MESSAGE );
 				return;
 			}
 			// Save child and parent information to an XML file
@@ -1158,7 +1162,7 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		{
 			if (e.getActionCommand().equals("editparent" + i))
 			{
-				if ((String)guardianComboBox[i].getSelectedItem() == "None")
+				if ((String)guardianComboBox[i].getSelectedItem() == lang_model.getValue(102))
 					return;
 
 				/*
@@ -1247,11 +1251,11 @@ public class Child_View implements ActionListener, FocusListener, InternalFrameL
 		{
 			doneButton.setEnabled(true);
 			doneButtonEnabled = true;
-			doneButton.setToolTipText("Save Child");
+			doneButton.setToolTipText( lang_model.getValue(72) );
 		} else {
 			doneButton.setEnabled(false);
 			doneButtonEnabled = false;
-			doneButton.setToolTipText("You must provide the child's first and last name");
+			doneButton.setToolTipText( lang_model.getValue(72) );
 		}
 	}
 
