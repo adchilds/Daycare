@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -219,8 +220,9 @@ public class File_System_Model
 		List<String> lines = new ArrayList<String>();
 
 		try {
-			InputStream pdInputStream = Install_Model.class.getResourceAsStream(filename); 
-			InputStreamReader isr = new InputStreamReader(pdInputStream);
+			URL url = File_System_Model.class.getClassLoader().getResource(filename);
+			URLConnection uc = url.openConnection();
+			InputStreamReader isr = new InputStreamReader(uc.getInputStream());
 			bufferedReader = new BufferedReader(isr);
 
 			String line = null;
@@ -229,8 +231,10 @@ public class File_System_Model
 			bufferedReader.close();
 		} catch (FileNotFoundException e) {
 			System.out.println( "File could not be found [" + filename + "]" );
+			System.exit(1);
 		} catch (IOException e) {
 			System.out.println( "Could not read from the file for some reason..." );
+			System.exit(1);
 		}
 
 		return lines.toArray(new String[lines.size()]);

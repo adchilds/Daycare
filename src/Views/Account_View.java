@@ -232,7 +232,7 @@ public class Account_View implements ActionListener
 
 			boolean finished = fs.createFile(file);
 			if (finished)
-				fs.populateFileFromFile(file, "../installation/account.txt");
+				fs.populateFileFromFile(file, "installation/account.txt");
 			else
 				System.out.println( "Something went wrong when adding the new account..." );
 

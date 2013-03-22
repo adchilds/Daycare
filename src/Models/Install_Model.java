@@ -64,17 +64,17 @@ public class Install_Model
 
 		if (finished)
 		{
-			fs.populateFileFromFile(directory + "account.txt", "../installation/account.txt");
+			fs.populateFileFromFile(directory + "account.txt", "installation/account.txt");
 			Logger.write("Populated file: account.txt", Logger.Level.INFO);
-			fs.populateFileFromFile(directory + "config.xml", "../installation/config.txt");
+			fs.populateFileFromFile(directory + "config.xml", "installation/config.txt");
 			Logger.write("Populated file: config.xml", Logger.Level.INFO);
-			fs.populateFileFromFile(directory + "README.txt", "../installation/README.txt");
+			fs.populateFileFromFile(directory + "README.txt", "installation/README.txt");
 			Logger.write("Populated file: README.txt", Logger.Level.INFO);
-			fs.populateFileFromFile(directory + "changelog.txt", "../installation/changelog.txt");
+			fs.populateFileFromFile(directory + "changelog.txt", "installation/changelog.txt");
 			Logger.write("Populated file: changelog.txt", Logger.Level.INFO);
-			fs.populateFileFromFile(directory + "license.txt", "../installation/license.txt");
+			fs.populateFileFromFile(directory + "license.txt", "installation/license.txt");
 			Logger.write("Populated file: license.txt", Logger.Level.INFO);
-			fs.populateFileFromFile(directory + "forms.txt", "../installation/forms.txt");
+			fs.populateFileFromFile(directory + "forms.txt", "installation/forms.txt");
 			Logger.write("Populated file: forms.txt", Logger.Level.INFO);
 		} else {
 			System.out.println( "Something went wrong installing, program already installed?" );
