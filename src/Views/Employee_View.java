@@ -46,6 +46,7 @@ import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 
 import lib.FixedSizeDocument;
+import lib.Logger;
 import lib.OSProperties;
 import lib.RoundedBorder;
 
@@ -1263,7 +1264,7 @@ public class Employee_View implements InternalFrameListener, ActionListener, Key
 			XMLOutputter outputter = new XMLOutputter();
 			outputter.setFormat(Format.getPrettyFormat());
 			outputter.output(doc, writer); // Save the new document
-			System.out.println( "SYSTEM: Saved new employee XML file:\n" + employeename + ".xml" );
+			Logger.write("Saved new employee XML file: " + employeename + ".xml", Logger.Level.SYSTEM);
 		} catch (IOException e) {
 			System.out.println( "SYSTEM: IOException while writing new XML file." );
 		}
