@@ -4,6 +4,7 @@
     <productKeySet>false</productKeySet>
     <accountSet>false</accountSet>
     <welcomeMessage>true</welcomeMessage>
+    <showcheckin>true</showcheckin>
     <daycareName>Default Daycare Name</daycareName>
   </settings>
   <program>
@@ -16,7 +17,7 @@
     <author>Adam Childs</author>
     <authorfacebook>http://www.facebook.com/adchilds</authorfacebook>
     <authoremail>adchilds@eckerd.edu</authoremail>
-    <version>1.04</version>
+    <version>1.10</version>
     <lastupdate>April 27, 2012</lastupdate>
     <authorwebsite>http://www.adchilds.com/</authorwebsite>
     <versionURL>http://www.adchilds.com/daycare/current_version.html</versionURL>

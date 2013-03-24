@@ -44,7 +44,7 @@ public class Install_View implements ActionListener, KeyListener
 	JPanel buttonPanel = null;
 	Language_Model lang_model = new Language_Controller().getModel();
 	OSProperties osp = new OSProperties();
-	String version = "v1.04";
+	String version = "v1.10";
 
 	/**
 	 * Instantiates a new Install_View object, which can display the
