@@ -34,7 +34,9 @@ import lib.OSProperties;
 import lib.RoundedBorder;
 import lib.SpringUtilities;
 import models.Bug_Report_Model;
+import models.Language_Model;
 import controllers.File_System_Controller;
+import controllers.Language_Controller;
 
 public class Bug_Report_View implements ActionListener, KeyListener
 {
@@ -48,13 +50,14 @@ public class Bug_Report_View implements ActionListener, KeyListener
 	private JPasswordField pw;
 	private JTextArea bugContent;
 	private JTextField un;
+	private Language_Model lang_model = new Language_Controller().getModel();
 	private OSProperties osp = null;
 
 	public Bug_Report_View(Bug_Report_Model m)
 	{
 		this.model = m;
 		
-		closeButton = new JButton("Close");
+		closeButton = new JButton( lang_model.getValue(124) );
 		closeButton.setBorder(new RoundedBorder(5));
 		closeButton.setPreferredSize(new Dimension(75, 30));
 		closeButton.setActionCommand("close_button");
@@ -70,7 +73,7 @@ public class Bug_Report_View implements ActionListener, KeyListener
 
 		dialog.pack();
 		dialog.setModal(true);
-		dialog.setTitle("Bug Report");
+		dialog.setTitle( lang_model.getValue(125) );
 		dialog.setResizable(false);
 		dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		dialog.setLocationRelativeTo(null);
@@ -89,7 +92,7 @@ public class Bug_Report_View implements ActionListener, KeyListener
 		JTextPane textPane;
 		JPanel topLayer = new JPanel(new BorderLayout());
 		JPanel secondLayerLeft = new JPanel(new BorderLayout());
-		secondLayerLeft.setBorder(BorderFactory.createTitledBorder("Google Mail (gmail) credentials:"));
+		secondLayerLeft.setBorder(BorderFactory.createTitledBorder( lang_model.getValue(126) + ":"));
 
 		/*
 		 * WEST Panel
@@ -104,7 +107,7 @@ public class Bug_Report_View implements ActionListener, KeyListener
 		Font font = new Font("Arial", Font.PLAIN, 9);
 		textPane.setFont(font);
 		textPane.setForeground(Color.DARK_GRAY);
-		textPane.setText("NOTE: You must have a valid gmail account to use this feature.");
+		textPane.setText( lang_model.getValue(127) );
 		textPane.setEditable(false);
 		textPane.setOpaque(false);
 		StyledDocument doc = textPane.getStyledDocument();
@@ -114,7 +117,7 @@ public class Bug_Report_View implements ActionListener, KeyListener
 		nPanel.add(textPane);
 		leftPanel.add(nPanel, BorderLayout.NORTH);
 
-		String[] labels = {"Email: ", "Password: "};
+		String[] labels = { lang_model.getValue(128) + ": ", lang_model.getValue(115) + ": "};
 		int numPairs = labels.length;
 		JPanel cPanel = new JPanel(new SpringLayout());
 
@@ -146,7 +149,7 @@ public class Bug_Report_View implements ActionListener, KeyListener
 		 * Bug Description area (allows user to describe problem with program)
 		 */
 		secondLayerRight = new JPanel(new BorderLayout());
-		secondLayerRight.setBorder(BorderFactory.createTitledBorder("Issue(s): (20 more characters required)"));
+		secondLayerRight.setBorder(BorderFactory.createTitledBorder( lang_model.getValue(129) + ": (20 " + lang_model.getValue(130) + ")"));
 		bugContent = new JTextArea();
 		bugContent.setWrapStyleWord(true);
 		bugContent.setLineWrap(true);
@@ -162,7 +165,7 @@ public class Bug_Report_View implements ActionListener, KeyListener
 		 */
 		JPanel secondLayerBottom = new JPanel(new GridLayout(2, 1));
 		JPanel temp = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		checkbox = new JCheckBox("Include system log file in bug report?");
+		checkbox = new JCheckBox( lang_model.getValue(131) );
 		temp.add(checkbox);
 		secondLayerBottom.add(temp);
 		feedbackLabel = new JLabel(" ", JLabel.CENTER);
@@ -175,7 +178,7 @@ public class Bug_Report_View implements ActionListener, KeyListener
 		 * Send Button
 		 */
 		buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		sendButton = new JButton("Send");
+		sendButton = new JButton( lang_model.getValue(132) );
 		sendButton.setBorder(new RoundedBorder(5));
 		sendButton.setPreferredSize(new Dimension(75, 30));
 		sendButton.setActionCommand("send_button");
@@ -185,7 +188,7 @@ public class Bug_Report_View implements ActionListener, KeyListener
 		/*
 		 * Send Button
 		 */
-		button = new JButton("Cancel");
+		button = new JButton( lang_model.getValue(11) );
 		button.setBorder(new RoundedBorder(5));
 		button.setPreferredSize(new Dimension(75, 30));
 		button.setActionCommand("cancel_button");
@@ -218,13 +221,13 @@ public class Bug_Report_View implements ActionListener, KeyListener
 			{
 				if ((20 - bugContent.getText().length()) > 1)
 					secondLayerRight.setBorder(
-						BorderFactory.createTitledBorder("Issue(s): (" + (20 - bugContent.getText().length()) + " more characters required)"));
+						BorderFactory.createTitledBorder(lang_model.getValue(129) + ": (" + (20 - bugContent.getText().length()) + " " + lang_model.getValue(130) + ")"));
 				else if ((20 - bugContent.getText().length()) == 1)
 					secondLayerRight.setBorder(
-							BorderFactory.createTitledBorder("Issue(s): (1 more character required)"));
+							BorderFactory.createTitledBorder(lang_model.getValue(129) + ": (1 " + lang_model.getValue(139) + ")"));
 				else
 					secondLayerRight.setBorder(
-							BorderFactory.createTitledBorder("Issue(s):"));
+							BorderFactory.createTitledBorder(lang_model.getValue(129) + ":"));
 			}
 		}
 	}
@@ -240,7 +243,7 @@ public class Bug_Report_View implements ActionListener, KeyListener
 				{
 					if (new String(pw.getPassword()).length() > 0)
 					{
-						feedbackLabel.setText("Sending bug report... Please wait.");
+						feedbackLabel.setText( lang_model.getValue(133) );
 						feedbackLabel.setForeground(Color.BLACK);
 						checkbox.setEnabled(false);
 						bugContent.setEditable(false);
@@ -250,15 +253,15 @@ public class Bug_Report_View implements ActionListener, KeyListener
 
 						sw.execute();
 					} else {
-						feedbackLabel.setText("You must provide a password.");
+						feedbackLabel.setText( lang_model.getValue(134) );
 						feedbackLabel.setForeground(Color.RED);
 					}
 				} else {
-					feedbackLabel.setText("You must provide a gmail username.");
+					feedbackLabel.setText( lang_model.getValue(135) );
 					feedbackLabel.setForeground(Color.RED);
 				}
 			} else {
-				feedbackLabel.setText("You must write more than 20 characters in the \"Issue(s)\" text area.");
+				feedbackLabel.setText( lang_model.getValue(136) );
 				feedbackLabel.setForeground(Color.RED);
 			}
 		}
@@ -297,7 +300,7 @@ public class Bug_Report_View implements ActionListener, KeyListener
 		  // Update your swing components here
 			if (sent)
 			{
-				feedbackLabel.setText("Success!");
+				feedbackLabel.setText( lang_model.getValue(137) );
 				feedbackLabel.setForeground(new Color(0, 139, 0));
 				buttonPanel.removeAll();
 				buttonPanel.add(closeButton);
@@ -309,7 +312,7 @@ public class Bug_Report_View implements ActionListener, KeyListener
 				un.setEditable(true);
 				pw.setEditable(true);
 				sendButton.setEnabled(true);
-				feedbackLabel.setText("Error: bug report could not be sent...");
+				feedbackLabel.setText( lang_model.getValue(138) );
 				feedbackLabel.setForeground(Color.RED);
 			}
 		}

@@ -62,7 +62,7 @@ public class About_View implements ActionListener
 			dialog.setSize(220, 170); // width, height
 		dialog.setLocationRelativeTo(null);
 		dialog.setModal(true);
-		dialog.setTitle("About D.M.S.");
+		dialog.setTitle( lang_model.getValue(106) );
 		dialog.setResizable(false);
 		dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		dialog.setIconImage(images.loadImage("Images/program_icon_small.png").getImage());
@@ -87,7 +87,7 @@ public class About_View implements ActionListener
 
 		nextLine(textPanel, 0); // skip a line hack, better way to do this?
 
-		label = new JLabel("Author: " + config.getAuthor());
+		label = new JLabel( lang_model.getValue(107) + " " + config.getAuthor());
 		textPanel.add(label);
 
 		nextLine(textPanel, 0); // skip a line hack, better way to do this?
@@ -95,7 +95,7 @@ public class About_View implements ActionListener
 		button = new JButton(images.loadImage("Images/website_icon.png"));
 		button.setPreferredSize(new Dimension(25, 25));
 		button.setBorder(new RoundedBorder(5));
-		button.setToolTipText("Click to view the author's website");
+		button.setToolTipText( lang_model.getValue(108) );
 		button.setFocusPainted(false);
 		button.setActionCommand("website");
 		button.addActionListener(this);
@@ -106,7 +106,7 @@ public class About_View implements ActionListener
 		button = new JButton(images.loadImage("Images/facebook_icon.png"));
 		button.setPreferredSize(new Dimension(25, 25));
 		button.setBorder(new RoundedBorder(5));
-		button.setToolTipText("Click to view the author's facebook profile");
+		button.setToolTipText( lang_model.getValue(109) );
 		button.setFocusPainted(false);
 		button.setActionCommand("facebook");
 		button.addActionListener(this);
@@ -117,7 +117,7 @@ public class About_View implements ActionListener
 		button = new JButton(images.loadImage("Images/email_icon.png"));
 		button.setPreferredSize(new Dimension(25, 25));
 		button.setBorder(new RoundedBorder(5));
-		button.setToolTipText("Click to email the author");
+		button.setToolTipText( lang_model.getValue(110) );
 		button.setFocusPainted(false);
 		button.setActionCommand("email");
 		button.addActionListener(this);
@@ -129,7 +129,7 @@ public class About_View implements ActionListener
 		 * OK Button
 		 */
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		button = new JButton("OK");
+		button = new JButton( lang_model.getValue(111) );
 		button.setBorder(new RoundedBorder(5));
 		button.setPreferredSize(new Dimension(75, 30));
 		button.setActionCommand("button");

@@ -21,15 +21,18 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.WindowConstants;
 
+import lib.Logger;
 import lib.OSProperties;
 import lib.RoundedBorder;
 import lib.SpringUtilities;
 import models.File_System_Model;
+import models.Language_Model;
 import controllers.Account_Controller;
 import controllers.Config_Controller;
 import controllers.Encryption_Controller;
 import controllers.File_System_Controller;
 import controllers.Image_Controller;
+import controllers.Language_Controller;
 
 public class Account_View implements ActionListener
 {
@@ -40,6 +43,7 @@ public class Account_View implements ActionListener
 	JPanel southPanel;
 	JPasswordField firstPass, secondPass;
 	JTextField username;
+	Language_Model lang_model = new Language_Controller().getModel();
 	OSProperties osp = null;
 
 	public Account_View()
@@ -63,7 +67,7 @@ public class Account_View implements ActionListener
 
 		dialog.setIconImage(images.loadImage("Images/program_icon_small.png").getImage());
 		dialog.setLocationRelativeTo(null);
-		dialog.setTitle( "Create New Account" );
+		dialog.setTitle( lang_model.getValue(112) );
 		dialog.setModal(true);
 		dialog.setResizable(false);
 		dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -79,7 +83,7 @@ public class Account_View implements ActionListener
 
 		// northPanel
 		northPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		label = new JLabel( "Create New Account" );
+		label = new JLabel( lang_model.getValue(113) );
 		northPanel.add(label);
 
 		// centerPanel
@@ -92,19 +96,19 @@ public class Account_View implements ActionListener
 		/*
 		 * Username field
 		 */
-		label = new JLabel( "Username:", JLabel.TRAILING );
+		label = new JLabel( lang_model.getValue(114) + ":", JLabel.TRAILING );
 		centerPanelc.add(label);
 		username = new JTextField();
 		username.setPreferredSize(new Dimension(190, 25));
 		centerPanelc.add(username);
 
-		label = new JLabel( "Password:", JLabel.TRAILING );
+		label = new JLabel( lang_model.getValue(115) + ":", JLabel.TRAILING );
 		centerPanelc.add(label);
 		firstPass = new JPasswordField();
 		firstPass.setPreferredSize(new Dimension(191, 25));
 		centerPanelc.add(firstPass);
 		
-		label = new JLabel( "Re-type Password:", JLabel.TRAILING );
+		label = new JLabel( lang_model.getValue(116) + ":", JLabel.TRAILING );
 		centerPanelc.add(label);
 		secondPass = new JPasswordField();
 		secondPass.setPreferredSize(new Dimension(145, 25));
@@ -127,10 +131,10 @@ public class Account_View implements ActionListener
 		 * Create account Button
 		 */
 		southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		button = new JButton("Create");
+		button = new JButton( lang_model.getValue(117) );
 		button.setBorder(new RoundedBorder(5));
 		button.setPreferredSize(new Dimension(75, 30));
-		button.setToolTipText("Create the new account");
+		button.setToolTipText( lang_model.getValue(118) );
 		button.setFocusable(true);
 		button.setActionCommand("create");
 		button.addActionListener(this);
@@ -142,7 +146,7 @@ public class Account_View implements ActionListener
 		button = new JButton("Cancel");
 		button.setBorder(new RoundedBorder(5));
 		button.setPreferredSize(new Dimension(75, 30));
-		button.setToolTipText("Cancels new account creation process");
+		button.setToolTipText( lang_model.getValue(119) );
 		button.setFocusable(true);
 		button.setActionCommand("cancel");
 		button.addActionListener(this);
@@ -187,7 +191,7 @@ public class Account_View implements ActionListener
 			// Have they filled out all three fields?
 			if (firstPass.getPassword().length == 0 || secondPass.getPassword().length == 0 || username.getText().length() == 0)
 			{
-				feedbackLabel.setText("You must fill all fields!");
+				feedbackLabel.setText( lang_model.getValue(120) );
 				feedbackLabel.setForeground(Color.RED);
 				return;
 			}
@@ -195,7 +199,7 @@ public class Account_View implements ActionListener
 			// Does the account name already exist?
 			if (new File(file).exists())
 			{
-				feedbackLabel.setText("Username already registered.");
+				feedbackLabel.setText( lang_model.getValue(121) );
 				feedbackLabel.setForeground(Color.RED);
 				return;
 			}
@@ -203,11 +207,11 @@ public class Account_View implements ActionListener
 			// Do the passwords match?
 			if (!passwordsMatch())
 			{
-				feedbackLabel.setText("Passwords do not match!");
+				feedbackLabel.setText( lang_model.getValue(122) );
 				feedbackLabel.setForeground(Color.RED);
 				return;
 			} else {
-				feedbackLabel.setText("Account successfully created.");
+				feedbackLabel.setText( lang_model.getValue(123) );
 				feedbackLabel.setForeground(new Color(0, 139, 0));
 			}
 
@@ -234,7 +238,7 @@ public class Account_View implements ActionListener
 			if (finished)
 				fs.populateFileFromFile(file, "installation/account.txt");
 			else
-				System.out.println( "Something went wrong when adding the new account..." );
+				Logger.write("Something went wrong when adding the new account...", Logger.Level.ERROR);
 
 			Account_Controller acct = new Account_Controller(username.getText() + ".xml");
 			// Set the username

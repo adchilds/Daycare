@@ -17,8 +17,10 @@ import javax.swing.SpringLayout;
 
 import lib.RoundedBorder;
 import lib.SpringUtilities;
+import models.Language_Model;
 import controllers.Config_Controller;
 import controllers.Image_Controller;
+import controllers.Language_Controller;
 
 /**
  * <p>Contains the user interface which allows the user to edit program
@@ -34,6 +36,7 @@ public class Properties_View implements ActionListener
 	JDialog dialog = new JDialog();
 	JTextField textfield = null;
 	Image_Controller images = new Image_Controller();
+	Language_Model lang_model = new Language_Controller().getModel();
 
 	public Properties_View()
 	{
@@ -56,14 +59,14 @@ public class Properties_View implements ActionListener
 		dialog.setLocationRelativeTo(null);
 		dialog.setResizable(false);
 		dialog.setModal(true);
-		dialog.setTitle("Properties");
+		dialog.setTitle( lang_model.getValue(161) );
 		dialog.setVisible(true);
 	}
 
 	private JPanel northPanel()
 	{
 		JPanel p = new JPanel(new SpringLayout());
-		String[] labels = {"Daycare Name:", "Show welcome message on startup:", "Show check-in/out view on startup" };
+		String[] labels = { lang_model.getValue(162) +":", lang_model.getValue(163) + ":", lang_model.getValue(164) + ":" };
 		int numPairs = labels.length;
 		JLabel label;
 
@@ -115,14 +118,14 @@ public class Properties_View implements ActionListener
 		JPanel p = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		JButton button;
 
-		button = new JButton("Save");
+		button = new JButton( lang_model.getValue(15) );
 		button.setActionCommand("save");
 		button.addActionListener(this);
 		button.setBorder(new RoundedBorder(5));
 		button.setPreferredSize(new Dimension(75, 30));
 		p.add(button);
 
-		button = new JButton("Cancel");
+		button = new JButton( lang_model.getValue(11) );
 		button.setActionCommand("cancel");
 		button.addActionListener(this);
 		button.setBorder(new RoundedBorder(5));

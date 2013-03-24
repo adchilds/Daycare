@@ -24,7 +24,9 @@ import javax.swing.WindowConstants;
 import lib.Logger;
 import lib.OSProperties;
 import lib.RoundedBorder;
+import models.Language_Model;
 import controllers.File_System_Controller;
+import controllers.Language_Controller;
 import controllers.Login_Controller;
 
 /**
@@ -37,7 +39,8 @@ import controllers.Login_Controller;
 public class Login_View implements ActionListener, KeyListener
 {
 	boolean logged_in = false;
-	JButton okbutton = new JButton("OK");
+	Language_Model lang_model = new Language_Controller().getModel();
+	JButton okbutton = new JButton( lang_model.getValue(111) );
 	JDialog dialog = null;
 	JLabel feedbackLabel = null;
 	JPanel buttonPanel = null;
@@ -72,7 +75,7 @@ public class Login_View implements ActionListener, KeyListener
 		dialog.addKeyListener(this);
 		dialog.setLocationRelativeTo(null);
 		dialog.setModal(true);
-		dialog.setTitle("Login");
+		dialog.setTitle( lang_model.getValue(152) );
 		dialog.setResizable(false);
 		dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		dialog.setVisible(true);
@@ -88,13 +91,13 @@ public class Login_View implements ActionListener, KeyListener
 		JLabel label;
 
 		labelPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		label = new JLabel("Please login to your account.");
+		label = new JLabel( lang_model.getValue(153) );
 		labelPanel.add(label);
 
 		/*
 		 * Username field
 		 */
-		label = new JLabel("Username:");
+		label = new JLabel( lang_model.getValue(114) + ":");
 		if (osp.isMac())
 		{
 			if (osp.isHighResolution())
@@ -113,7 +116,7 @@ public class Login_View implements ActionListener, KeyListener
 		/*
 		 * Password field
 		 */
-		label = new JLabel("Password:");
+		label = new JLabel(lang_model.getValue(115) + ":");
 		if (osp.isMac())
 		{
 			if (osp.isHighResolution())
@@ -136,10 +139,10 @@ public class Login_View implements ActionListener, KeyListener
 		 * Login Button
 		 */
 		buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		button = new JButton("Login");
+		button = new JButton( lang_model.getValue(152) );
 		button.setBorder(new RoundedBorder(5));
 		button.setPreferredSize(new Dimension(75, 30));
-		button.setToolTipText("Login");
+		button.setToolTipText( lang_model.getValue(152) );
 		button.setFocusable(true);
 		button.setActionCommand("login");
 		button.addActionListener(this);
@@ -149,10 +152,10 @@ public class Login_View implements ActionListener, KeyListener
 		/*
 		 * Cancel Button
 		 */
-		button = new JButton("Cancel");
+		button = new JButton( lang_model.getValue(11) );
 		button.setBorder(new RoundedBorder(5));
 		button.setPreferredSize(new Dimension(75, 30));
-		button.setToolTipText("This will terminate the program");
+		button.setToolTipText( lang_model.getValue(154) );
 		button.setFocusable(true);
 		button.setActionCommand("cancel");
 		button.addActionListener(this);
@@ -176,7 +179,7 @@ public class Login_View implements ActionListener, KeyListener
 
 		if (usernameField.getText().length() == 0 || passwordField.getPassword().length == 0)
 		{
-			feedbackLabel.setText( "You must fill all fields." );
+			feedbackLabel.setText( lang_model.getValue(120) );
 			feedbackLabel.setForeground(Color.RED);
 			Logger.write("Not all fields filled in during login procedure.", Logger.Level.USER_ERROR);
 			return;
@@ -186,7 +189,7 @@ public class Login_View implements ActionListener, KeyListener
 		{
 			if (controller.validateLogin(user, pass))
 			{
-				feedbackLabel.setText("Login successful!");
+				feedbackLabel.setText( lang_model.getValue(155) );
 				feedbackLabel.setForeground(new Color(0, 139, 0));
 				usernameField.setEnabled(false);
 				passwordField.setEnabled(false);
@@ -203,12 +206,12 @@ public class Login_View implements ActionListener, KeyListener
 				okbutton.requestFocus();
 				logged_in = true;
 			} else {
-				feedbackLabel.setText("Invalid username or password!");
+				feedbackLabel.setText( lang_model.getValue(156) );
 				feedbackLabel.setForeground(Color.RED);
 				Logger.write("Invalid password [" + pass + "] for account [" + user + "].", Logger.Level.USER_ERROR);
 			}
 		} else {
-			feedbackLabel.setText("Invalid username or password!");
+			feedbackLabel.setText( lang_model.getValue(156) );
 			feedbackLabel.setForeground(Color.RED);
 			Logger.write("Invalid username [" + user + "].", Logger.Level.USER_ERROR);
 		}
@@ -221,7 +224,7 @@ public class Login_View implements ActionListener, KeyListener
 		{
 			if (usernameField.getText().length() == 0 || passwordField.getPassword().length == 0)
 			{
-				feedbackLabel.setText( "You must fill all fields." );
+				feedbackLabel.setText( lang_model.getValue(120) );
 				feedbackLabel.setForeground(Color.RED);
 				Logger.write("Not all fields filled in during login procedure.", Logger.Level.USER_ERROR);
 				return;

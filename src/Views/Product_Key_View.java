@@ -23,7 +23,9 @@ import lib.Logger;
 import lib.OSProperties;
 import lib.RoundedBorder;
 import lib.Validation;
+import models.Language_Model;
 import controllers.Config_Controller;
+import controllers.Language_Controller;
 import controllers.Product_Key_Controller;
 
 /**
@@ -38,6 +40,7 @@ public class Product_Key_View implements ActionListener, KeyListener
 	Product_Key_Controller controller = null;
 	JDialog dialog = new JDialog();
 	JLabel feedbackLabel = null;
+	Language_Model lang_model = new Language_Controller().getModel();
 	JPanel buttonPanel = null;
 
 	public Product_Key_View(Product_Key_Controller parent)
@@ -63,7 +66,7 @@ public class Product_Key_View implements ActionListener, KeyListener
 			dialog.setSize(350, 150); // width, height
 		dialog.setLocationRelativeTo(null);
 		dialog.setModal(true);
-		dialog.setTitle("Daycare Management System");
+		dialog.setTitle( lang_model.getValue(2) );
 		dialog.setResizable(false);
 		dialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		dialog.setVisible(true);
@@ -84,7 +87,7 @@ public class Product_Key_View implements ActionListener, KeyListener
 
 		labelPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		label = new JLabel();
-		label.setText("Please enter the product key found on the CD:");
+		label.setText( lang_model.getValue(157) + ":");
 		labelPanel.add(label);
 
 		productkeyPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -158,7 +161,7 @@ public class Product_Key_View implements ActionListener, KeyListener
 		 * Validate Button
 		 */
 		buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		button = new JButton("Validate");
+		button = new JButton( lang_model.getValue(158) );
 		button.setBorder(new RoundedBorder(5));
 		button.setPreferredSize(new Dimension(75, 30));
 		button.setActionCommand("validate");
@@ -168,7 +171,7 @@ public class Product_Key_View implements ActionListener, KeyListener
 		/*
 		 * Cancel Button
 		 */
-		button = new JButton("Cancel");
+		button = new JButton( lang_model.getValue(11) );
 		button.setBorder(new RoundedBorder(5));
 		button.setPreferredSize(new Dimension(75, 30));
 		button.setActionCommand("cancel");
@@ -196,14 +199,14 @@ public class Product_Key_View implements ActionListener, KeyListener
 
 		if (valid)
 		{
-			feedbackLabel.setText("Valid product key! Product registered.");
+			feedbackLabel.setText( lang_model.getValue(159) );
 			feedbackLabel.setForeground(new Color(0, 139, 0));
 			for (int i = 0; i < textField.length; i++)
 				textField[i].setEnabled(false);
 
 			buttonPanel.removeAll();
 
-			JButton button = new JButton("OK");
+			JButton button = new JButton( lang_model.getValue(111) );
 			button.setBorder(new RoundedBorder(5));
 			button.setPreferredSize(new Dimension(75, 30));
 			button.setActionCommand("ok");
@@ -215,7 +218,7 @@ public class Product_Key_View implements ActionListener, KeyListener
 			new Config_Controller().setProductKeySet(true);
 		} else {
 			Logger.write("Invalid product key: (" + s + ")", Logger.Level.ERROR);
-			feedbackLabel.setText("Invalid product key!");
+			feedbackLabel.setText( lang_model.getValue(160) );
 			feedbackLabel.setForeground(Color.RED);
 		}
 	}

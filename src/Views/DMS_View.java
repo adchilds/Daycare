@@ -276,28 +276,28 @@ public class DMS_View implements ActionListener
 		JButton button;
 
 		button = new JButton(images.loadImage("Images/toolbar/add_child_icon.png"));
-		button.setToolTipText("Add New Child");
+		button.setToolTipText( lang_model.getValue(41) );
 		button.setFocusPainted(false);
 		button.setActionCommand("newchild");
 		button.addActionListener(this);
 		toolbar.add(button);
 
 		button = new JButton(images.loadImage("Images/toolbar/add_employee_icon.png"));
-		button.setToolTipText("Add New Employee");
+		button.setToolTipText( lang_model.getValue(147) );
 		button.setFocusPainted(false);
 		button.setActionCommand("newemployee");
 		button.addActionListener(this);
 		toolbar.add(button);
 
 		button = new JButton(images.loadImage("Images/toolbar/XML_icon_large.png"));
-		button.setToolTipText("Open...");
+		button.setToolTipText( lang_model.getValue(148) );
 		button.setFocusPainted(false);
 		button.setActionCommand("openfile");
 		button.addActionListener(this);
 		toolbar.add(button);
 
 		button = new JButton(images.loadImage("Images/toolbar/calendar_icon_large.png"));
-		button.setToolTipText("View Calendar");
+		button.setToolTipText( lang_model.getValue(149) );
 		button.setFocusPainted(false);
 		button.setActionCommand("viewcalendar");
 		button.addActionListener(this);
@@ -305,14 +305,14 @@ public class DMS_View implements ActionListener
 		toolbar.add(button);
 
 		button = new JButton(images.loadImage("Images/toolbar/database_icon_large.png"));
-		button.setToolTipText("View Database");
+		button.setToolTipText( lang_model.getValue(150) );
 		button.setFocusPainted(false);
 		button.setActionCommand("viewdatabase");
 		button.addActionListener(this);
 		toolbar.add(button);
 
 		button = new JButton(images.loadImage("Images/toolbar/finances_icon_large.png"));
-		button.setToolTipText("View Finances");
+		button.setToolTipText( lang_model.getValue(151) );
 		button.setFocusPainted(false);
 		button.setActionCommand("viewfinances");
 		button.addActionListener(this);
@@ -396,8 +396,8 @@ public class DMS_View implements ActionListener
 			JScrollPane sc = new JScrollPane(textArea);
 			sc.setPreferredSize(new Dimension(540, 250)); // Width, Height
 			sc.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-			String[] option = { "Close" };
-			JOptionPane.showOptionDialog(f, sc, "Help", JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+			String[] option = { lang_model.getValue(124) };
+			JOptionPane.showOptionDialog(f, sc, lang_model.getValue(33), JOptionPane.OK_OPTION, JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
 		}
 		else if (e.getActionCommand().equals("newchild"))
 		{

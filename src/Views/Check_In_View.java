@@ -73,7 +73,7 @@ public class Check_In_View implements ActionListener, InternalFrameListener, Key
 		dialog.pack();
 		dialog.setLocationRelativeTo(null);
 		dialog.setModal(true);
-		dialog.setTitle( "Check In/Out" );
+		dialog.setTitle( lang_model.getValue(140) );
 		dialog.setResizable(false);
 		dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		dialog.setIconImage(images.loadImage("Images/program_icon_small.png").getImage());
@@ -106,20 +106,20 @@ public class Check_In_View implements ActionListener, InternalFrameListener, Key
 		JPanel p = new JPanel(new BorderLayout(0, 5));
 		JButton button;
 
-		button = new JButton( "Check-In" );
+		button = new JButton( lang_model.getValue(141) );
 		button.setBorder(new RoundedBorder(5));
 		button.setIcon(images.loadImage("Images/arrow_right_icon.png"));
 		button.setActionCommand("checkin");
 		button.addActionListener(this);
-		button.setToolTipText( "Check-In" );
+		button.setToolTipText( lang_model.getValue(141) );
 		p.add(button, BorderLayout.NORTH);
 
-		button = new JButton( "Check-Out" );
+		button = new JButton( lang_model.getValue(142) );
 		button.setBorder(new RoundedBorder(5));
 		button.setIcon(images.loadImage("Images/arrow_left_icon.png"));
 		button.setActionCommand("checkout");
 		button.addActionListener(this);
-		button.setToolTipText( "Check-Out" );
+		button.setToolTipText( lang_model.getValue(142) );
 		p.add(button, BorderLayout.SOUTH);
 
 		return p;
@@ -128,11 +128,11 @@ public class Check_In_View implements ActionListener, InternalFrameListener, Key
 	private JPanel leftPanel()
 	{
 		JPanel p = new JPanel(new BorderLayout());
-		p.setBorder(BorderFactory.createTitledBorder("Checked-Out"));
+		p.setBorder(BorderFactory.createTitledBorder( lang_model.getValue(143) ));
 		checkedout = new DefaultListModel();
 
 		JPanel upper = new JPanel();
-		JLabel label = new JLabel("Search: ");
+		JLabel label = new JLabel(lang_model.getValue(144) + ": ");
 		checkedoutTextfield = new JTextField(7);
 		checkedoutTextfield.addKeyListener(this);
 		upper.add(label);
@@ -165,11 +165,11 @@ public class Check_In_View implements ActionListener, InternalFrameListener, Key
 	private JPanel rightPanel()
 	{
 		JPanel p = new JPanel(new BorderLayout());
-		p.setBorder(BorderFactory.createTitledBorder("Checked-In"));
+		p.setBorder(BorderFactory.createTitledBorder( lang_model.getValue(145) ));
 		checkedin = new DefaultListModel();
 
 		JPanel upper = new JPanel();
-		JLabel label = new JLabel("Search: ");
+		JLabel label = new JLabel(lang_model.getValue(144) + ": ");
 		checkedinTextfield = new JTextField(7);
 		checkedinTextfield.addKeyListener(this);
 		upper.add(label);
@@ -192,7 +192,7 @@ public class Check_In_View implements ActionListener, InternalFrameListener, Key
 	{
 		JPanel p = new JPanel();
 		
-		JCheckBox ch = new JCheckBox("Hide Check-In/Out at program startup?");
+		JCheckBox ch = new JCheckBox( lang_model.getValue(146) );
 		ch.addActionListener(this);
 		ch.setActionCommand("checkbox");
 		p.add(ch);
