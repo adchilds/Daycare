@@ -108,7 +108,7 @@ public class DMS_View implements ActionListener
 		
 		JMenu fileMenu, editMenu, viewMenu, helpMenu, newEntry, viewDatabase;
 		JMenuItem newChild, newEmployee, newAccount, openChild, viewFileChild, viewFileEmployee, saveChild, saveAs, printDocument, properties,
-				viewDatabaseChild, viewDatabaseEmployee, viewFinances, viewCalendar, exit, cut, copy, paste, help, faq, report, about;
+				viewDatabaseChild, viewDatabaseEmployee, viewFinances, viewCalendar, exit, cut, copy, paste, help, faq, report, about, checkupdate;
 		
 		// Initialize JMenu's
 		fileMenu = new JMenu( lang_model.getValue(12) );
@@ -163,8 +163,10 @@ public class DMS_View implements ActionListener
 		faq = new JMenuItem( lang_model.getValue(34) );
 		report = new JMenuItem( lang_model.getValue(35) );
 		about = new JMenuItem( lang_model.getValue(36), images.loadImage("Images/menubar/exclamation_icon.png") );
+		checkupdate = new JMenuItem( lang_model.getValue(105) );
 
 		faq.setEnabled(false);
+		checkupdate.setEnabled(false);
 
 		// Add JMenuItem's to the JMenu's
 		fileMenu.add(newEntry);
@@ -196,6 +198,7 @@ public class DMS_View implements ActionListener
 		helpMenu.add(faq);
 		helpMenu.add(report);
 		helpMenu.add(about);
+		helpMenu.add(checkupdate);
 		
 		// Add JMenu's to the MenuBar
 		mb.add(fileMenu);
@@ -256,6 +259,8 @@ public class DMS_View implements ActionListener
 		report.addActionListener(this);
 		about.setActionCommand("about");
 		about.addActionListener(this);
+		checkupdate.setActionCommand("checkupdate");
+		checkupdate.addActionListener(this);
 
 		return mb;
 	}
@@ -366,6 +371,10 @@ public class DMS_View implements ActionListener
 		if (e.getActionCommand().equals("about"))
 		{
 			new About_Controller().showView();
+		}
+		else if (e.getActionCommand().equals("checkupdate"))
+		{
+			
 		}
 		else if (e.getActionCommand().equals("exit"))
 		{
