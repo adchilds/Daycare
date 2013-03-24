@@ -148,6 +148,8 @@ public class Bug_Report_View implements ActionListener, KeyListener
 		secondLayerRight = new JPanel(new BorderLayout());
 		secondLayerRight.setBorder(BorderFactory.createTitledBorder("Issue(s): (20 more characters required)"));
 		bugContent = new JTextArea();
+		bugContent.setWrapStyleWord(true);
+		bugContent.setLineWrap(true);
 		bugContent.addKeyListener(this);
 		bugContent.setColumns(20);
 		
