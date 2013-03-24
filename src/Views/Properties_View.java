@@ -30,7 +30,7 @@ import controllers.Image_Controller;
 public class Properties_View implements ActionListener
 {
 	Config_Controller config_file = new Config_Controller();
-	JCheckBox welcomeMessage = null;
+	JCheckBox welcomeMessage = null, checkinView = null;
 	JDialog dialog = new JDialog();
 	JTextField textfield = null;
 	Image_Controller images = new Image_Controller();
@@ -63,7 +63,7 @@ public class Properties_View implements ActionListener
 	private JPanel northPanel()
 	{
 		JPanel p = new JPanel(new SpringLayout());
-		String[] labels = {"Daycare Name:", "Show welcome message on startup:" };
+		String[] labels = {"Daycare Name:", "Show welcome message on startup:", "Show check-in/out view on startup" };
 		int numPairs = labels.length;
 		JLabel label;
 
@@ -88,11 +88,24 @@ public class Properties_View implements ActionListener
 		label.setLabelFor(welcomeMessage);
 		p.add(welcomeMessage);
 
+		label = new JLabel(labels[2], JLabel.TRAILING);
+		p.add(label);
+
+		checkinView = new JCheckBox("");
+
+		if (config_file.getCheckInView()) // if checkin-in/out is to be shown
+			checkinView.setSelected(true);
+		else
+			checkinView.setSelected(false);
+
+		label.setLabelFor(checkinView);
+		p.add(checkinView);
+
 		// Lay out the panel
 		SpringUtilities.makeCompactGrid(p,
 		                                numPairs, 2, //rows, cols
 		                                3, 0,        //initX, initY
-		                                5, 5);     //xPad, yPad
+		                                5, 5);       //xPad, yPad
 
 		return p;
 	}
@@ -130,6 +143,10 @@ public class Properties_View implements ActionListener
 			config_file.setWelcomeMessage(true);
 		else
 			config_file.setWelcomeMessage(false);
+		if (checkinView.isSelected())
+			config_file.setCheckInView(true);
+		else
+			config_file.setCheckInView(false);
 	}
 
 	@Override

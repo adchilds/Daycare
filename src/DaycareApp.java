@@ -4,10 +4,12 @@ import javax.swing.SwingUtilities;
 
 import lib.Logger;
 import controllers.Account_Controller;
+import controllers.Check_In_Controller;
 import controllers.Config_Controller;
 import controllers.DMS_Controller;
 import controllers.File_System_Controller;
 import controllers.Install_Controller;
+import controllers.Login_Controller;
 import controllers.Product_Key_Controller;
 
 /**
@@ -50,11 +52,15 @@ class DaycareApp
 						new Account_Controller().showView();
 					}
 
+					// Open the check-in/out view
+					if (new Config_Controller().getCheckInView())
+						new Check_In_Controller().showView();
+
 					// Open the main view of the program
 					controller = new DMS_Controller();
 
 					// Prompt the user to login
-//					new Login_Controller().showView();
+					new Login_Controller().showView();
 				}
 			}
 		);

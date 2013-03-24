@@ -110,6 +110,27 @@ public class Config_Controller
 
 	/**
 	 * Returns whether or not the user has selected to hide
+	 * the check-in/out view during program startup.
+	 */
+	public boolean getCheckInView()
+	{
+		return Boolean.parseBoolean(root.getChild("settings").getChildText("showcheckin"));
+	}
+
+	/**
+	 * Sets the showcheckin to true or false. Has the user
+	 * selected to not display the Check-In/Out view on program startup?
+	 */
+	public void setCheckInView(boolean b)
+	{
+		String s = new Boolean(b).toString();
+		root.getChild("settings").getChild("showcheckin").setText(s);
+		Logger.write("Display checkin/out view changed to: " + s, Logger.Level.SYSTEM);
+		saveFile();
+	}
+
+	/**
+	 * Returns whether or not the user has selected to hide
 	 * the beginning welcome message.
 	 */
 	public boolean getWelcomeMessage()
