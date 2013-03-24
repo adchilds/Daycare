@@ -28,6 +28,7 @@ import javax.swing.event.InternalFrameListener;
 import lib.OSProperties;
 import lib.RoundedBorder;
 import lib.Timer;
+import models.Check_In_Model;
 import models.File_System_Model;
 import models.Language_Model;
 import controllers.Config_Controller;
@@ -47,6 +48,7 @@ public class Check_In_View implements ActionListener, InternalFrameListener, Key
 	ArrayList<Object> tempcheckedout = new ArrayList<Object>();
 	ArrayList<Object> tempcheckedin = new ArrayList<Object>();
 	ArrayList<Timer> timers = new ArrayList<Timer>();
+	Check_In_Model model;
 	DefaultListModel checkedout, checkedin;
 	Image_Controller images = new Image_Controller();
 	JDialog dialog = new JDialog();
@@ -55,9 +57,9 @@ public class Check_In_View implements ActionListener, InternalFrameListener, Key
 	Language_Model lang_model = new Language_Controller().getModel();
 	OSProperties osp = new OSProperties();
 
-	public Check_In_View()
+	public Check_In_View(Check_In_Model m)
 	{
-		
+		this.model = m;
 	}
 
 	/**
@@ -200,50 +202,6 @@ public class Check_In_View implements ActionListener, InternalFrameListener, Key
 		return p;
 	}
 
-	/**
-	 * <p>Searches the checkedout lists to see if they contain the
-	 * specified string. If so, they stay in the list. If
-	 * not, they are removed from the list and not displayed
-	 * on screen to the user.
-	 * 
-	 * @param listmodel The DefaultListModel to iterate over
-	 * @param temp The temp ArrayList to add non-matching objects to
-	 * @param textfield The JTextField instance being typed into
-	 */
-	private void search(DefaultListModel listmodel, ArrayList<Object> temp, JTextField textfield)
-	{
-		String s = textfield.getText();
-
-		for (Object o : listmodel.toArray()) // All in listmodel
-		{
-			if (((String)o).toLowerCase().contains(s.toLowerCase())) // If a name contains the typed string
-			{
-				// Keep element in listmodel
-				
-			} else {
-				// Remove element from listmodel
-				if (!temp.contains(o))
-					temp.add(o);
-				listmodel.removeElement(o);
-			}
-		}
-		for (Object o : temp.toArray()) // All in temp
-		{
-			if (((String)o).toLowerCase().contains(s.toLowerCase())) // If a name contains the typed string
-			{
-				// Remove element from temp
-				if (temp.contains(o))
-					temp.remove(o);
-					
-				if (!listmodel.contains(o))
-					listmodel.addElement(o);
-			} else {
-				// Keep element in temp
-					
-			}
-		}
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -369,9 +327,9 @@ public class Check_In_View implements ActionListener, InternalFrameListener, Key
 	public void keyReleased(KeyEvent e)
 	{
 		if (checkedoutTextfield.hasFocus())
-			search(checkedout, tempcheckedout, checkedoutTextfield);
+			model.search(checkedout, tempcheckedout, checkedoutTextfield);
 		else if (checkedinTextfield.hasFocus())
-			search(checkedin, tempcheckedin, checkedinTextfield);
+			model.search(checkedin, tempcheckedin, checkedinTextfield);
 	}
 
 	@Override

@@ -20,7 +20,7 @@ public class Check_In_Controller
 	public Check_In_Controller()
 	{
 		this.model = new Check_In_Model();
-		this.view = new Check_In_View();
+		this.view = new Check_In_View(this.model);
 	}
 
 	public void showView()
