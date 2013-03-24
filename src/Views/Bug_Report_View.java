@@ -201,6 +201,32 @@ public class Bug_Report_View implements ActionListener, KeyListener
 		return topLayer;
 	}
 
+	/**
+	 * <p>Checks to see how many characters the user has entered into
+	 * the Bug Report content textfield and changes the border title
+	 * accordingly.
+	 * 
+	 * @param e The KeyEvent relating to the textfield instance
+	 */
+	public void checkCharacters(KeyEvent e)
+	{
+		if (bugContent.hasFocus())
+		{
+			if ((e.getKeyCode() != 8) || (e.getKeyCode() != 127))
+			{
+				if ((20 - bugContent.getText().length()) > 1)
+					secondLayerRight.setBorder(
+						BorderFactory.createTitledBorder("Issue(s): (" + (20 - bugContent.getText().length()) + " more characters required)"));
+				else if ((20 - bugContent.getText().length()) == 1)
+					secondLayerRight.setBorder(
+							BorderFactory.createTitledBorder("Issue(s): (1 more character required)"));
+				else
+					secondLayerRight.setBorder(
+							BorderFactory.createTitledBorder("Issue(s):"));
+			}
+		}
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -290,27 +316,13 @@ public class Bug_Report_View implements ActionListener, KeyListener
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
-		if (bugContent.hasFocus())
-		{
-			if ((e.getKeyCode() != 8) || (e.getKeyCode() != 127))
-			{
-				if ((20 - bugContent.getText().length()) > 1)
-					secondLayerRight.setBorder(
-						BorderFactory.createTitledBorder("Issue(s): (" + (20 - bugContent.getText().length()) + " more characters required)"));
-				else if ((20 - bugContent.getText().length()) == 1)
-					secondLayerRight.setBorder(
-							BorderFactory.createTitledBorder("Issue(s): (1 more character required)"));
-				else
-					secondLayerRight.setBorder(
-							BorderFactory.createTitledBorder("Issue(s):"));
-			}
-		}
+		checkCharacters(e);
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
-		
+		checkCharacters(e);
 	}
 
 	@Override
