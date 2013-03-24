@@ -37,6 +37,7 @@ import controllers.Login_Controller;
 public class Login_View implements ActionListener, KeyListener
 {
 	boolean logged_in = false;
+	JButton okbutton = new JButton("OK");
 	JDialog dialog = null;
 	JLabel feedbackLabel = null;
 	JPanel buttonPanel = null;
@@ -191,15 +192,15 @@ public class Login_View implements ActionListener, KeyListener
 				passwordField.setEnabled(false);
 				buttonPanel.removeAll();
 	
-				JButton button = new JButton("OK");
-				button.setBorder(new RoundedBorder(5));
-				button.setPreferredSize(new Dimension(75, 30));
-				button.setActionCommand("ok");
-				button.addActionListener(this);
-				button.addKeyListener(this);
-				buttonPanel.add(button);
+				okbutton.setBorder(new RoundedBorder(5));
+				okbutton.setPreferredSize(new Dimension(75, 30));
+				okbutton.setActionCommand("ok");
+				okbutton.addActionListener(this);
+				okbutton.addKeyListener(this);
+				buttonPanel.add(okbutton);
 				buttonPanel.revalidate();
 				buttonPanel.repaint();
+				okbutton.requestFocus();
 				logged_in = true;
 			} else {
 				feedbackLabel.setText("Invalid username or password!");
@@ -249,7 +250,13 @@ public class Login_View implements ActionListener, KeyListener
 					attemptLogin();
 				else
 					passwordField.requestFocusInWindow();
-			} else if (logged_in) {
+			}
+			else if (logged_in)
+			{
+				dialog.dispose();
+			}
+			else if (okbutton.hasFocus())
+			{
 				dialog.dispose();
 			} else {
 				attemptLogin();
