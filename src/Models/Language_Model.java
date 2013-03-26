@@ -48,6 +48,24 @@ public class Language_Model
 						}
 					}
 				}
+			} catch(java.lang.NullPointerException np) {
+				try
+				{
+					fs = new POIFSFileSystem(new FileInputStream("src" + osp.getSeparator() + "installation" + osp.getSeparator() + languagesFile));
+				} catch(java.io.FileNotFoundException f2) {
+					try
+					{
+						fs = new POIFSFileSystem(new FileInputStream(new File_System_Controller().getModel().findFile(languagesFile)));
+					} catch(java.io.FileNotFoundException f3) {
+						try
+						{
+							fs = new POIFSFileSystem(new FileInputStream("src" + osp.getSeparator() + "installation" + osp.getSeparator() + languagesFile));
+						} catch(java.io.FileNotFoundException f4) {
+							Logger.write("Language file could not be found!", Logger.Level.ERROR);
+							System.exit(1);
+						}
+					}
+				}
 			}
 			wb = new HSSFWorkbook(fs);
 			sheet = wb.getSheetAt(0);
